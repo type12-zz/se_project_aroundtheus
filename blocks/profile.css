@@ -1,0 +1,33 @@
+.profile {
+    display: grid;
+    grid-template-columns: repeat(3 1fr);
+}
+
+.profile__header {
+    display: grid;
+}
+
+.profile__image {
+
+}
+
+.profile__name {
+
+}
+
+.profile__subtitle{
+
+}
+
+.profile__edit_button {
+
+}
+
+.profile__edit_button_image {
+
+}
+
+.profile__content {
+    /* This will be a display grid */
+}
+
