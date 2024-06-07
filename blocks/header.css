@@ -1,6 +1,11 @@
 .header {
-    display: grid;
-    grid-template-columns: repeat(3 1fr);
-    max-width: 100%;
-    /* grid-template-rows: repeat(2 1fr) ; */
+    grid-area: header;
+    height: 74px;
+    margin: 45px 200px 0;
+    /* background-color: lightcoral; */
+}
+
+.header__logo {
+    width: 173px;
+    height: 33px;
 }

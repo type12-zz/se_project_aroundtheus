@@ -1,7 +1,11 @@
 .footer {
  /* this will be a display */
+ width: 318px;
+ height: 18px;
+ margin-top: 67px;
 }
 
 .footer__copyright{
+    color: #545454;
 
 }
