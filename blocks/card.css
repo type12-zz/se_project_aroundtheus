@@ -1,7 +1,7 @@
 .card {
-    /* this will be a display */
+    display: grid;
     width: 282px;
-    /* height: 361px; */
+    margin-top: 47px;
     border-radius: 10px 10px 0 0;
     
 }
