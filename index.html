@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,88 +8,85 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Around The US</title>
 </head>
+
 <body>
     <div class="page">
         <div class="page__content">
-            <header class="header">
+            <header class="header page__section">
                 <img src="./images/logo.svg" class="header__logo" alt="Around the world logo" />
             </header>
-            <!----------------PROFILE---------------->
-            <main class="profile">
-                <!------------PROFILE HEADER--------------->
-                <div class="profile__header">
+            <!----------------CONTENT---------------->
+            <main class="content page__section">
+                <!-------------PROFILE--------------->
+                <section class="profile  page__section">
                     <img src="./images/jacques-cousteau.jpg" alt="profile picture of Jacques Cousteau in a red hat"
                         class="profile__image" />
-                    <div class="profile__header_name_outer_group">
-                        <div class="profile__header_name_inner_group">
-                            <p class="profile__name">Jacques Cousteau</p>
-                            <button class="profile__edit_button">
-                                <img src="./images/edit-btn.png" alt="" class="profile__edit_button_image" />
-                            </button>
-                            <p class="profile__subtitle">Explorer</p>
-                        </div>
-                    </div>    
-                    <button class="profile__add_button">
-                        <img src="./images/plus.png" alt="" class="profile__add_image" />
-                    </button>
-                </div>
-                <!---------------PROFILE CONTENT------------------>
-                <div class="profile__content">
-                    <div class="card">
-                        <img src="./images/yosemite.jpg" alt="" class="card__image" />
-                        <div class="card__footer">
-                            <p class="card__title">Yosemite Valley</p>
-                            <img src="./images/heart.jpg" alt="" class="card__footer_like_button" />
-                        </div>
+                    <div class="profile__info">
+                        <h1 class="profile__title">Jacques Cousteau</h1>
+                        <button class="profile__edit_button"></button>
+                        <h4 class="profile__subtitle">Explorer</h4>
                     </div>
+                    <button class="profile__add_button"></button>
+                </section>
+                <!-- -------------PROFILE CONTENT---------------- -->
+                <section class="cards page__section">
+                    <ul class="cards__list">
+                        <li class="card">
+                            <img src="./images/yosemite.jpg" alt="image of yosomite" class="card__image" />
+                            <div class="card__description">
+                                <h2>Yosemite Valley</h2>
+                                <img src="../images/heart.svg" alt="" class="card__like_button" />
+                            </div>
+                        </li>
 
-                    <div class="card">
-                        <img src="./images/lake-louise.jpg" alt="" class="card__image" />
-                        <div class="card__footer">
-                            <p class="card__title">Lake Louise</p>
-                            <img src="./images/heart.jpg" alt="" class="card__footer_like_button" />
-                        </div>
-                    </div>
+                        <li class="card">
+                            <img src="./images/lake-louise.jpg" alt="image of lake louise" class="card__image" />
+                            <div class="card__description">
+                                <h2 class="card__title">Lake Louise</h2>
+                                <img src="../images/heart.svg" alt="" class="card__like_button" />
+                            </div>
+                        </li>
 
-                    <div class="card">
-                        <img src="./images/bald-mountains.jpg" alt="" class="card__image" />
-                        <div class="card__footer">
-                            <p class="card__title">Bald Mountains</p>
-                            <img src="./images/heart.jpg" alt="" class="card__footer_like_button" />
-                        </div>
-                    </div>
+                        <li class="card">
+                            <img src="./images/bald-mountains.jpg" alt="image of bald mountains" class="card__image" />
+                            <div class="card__description">
+                                <h2 class="card__title">Bald Mountains</h2>
+                                <img src="../images/heart.svg" alt="" class="card__like_button" />
+                            </div>
+                        </li>
 
-                    <div class="card">
-                        <img src="./images/latemar.jpg" alt="" class="card__image" />
-                        <div class="card__footer">
-                            <p class="card__title">Latemar</p>
-                            <img src="./images/heart.jpg" alt="" class="card__footer_like_button" />
-                        </div>
-                    </div>
+                        <li class="card">
+                            <img src="./images/latemar.jpg" alt="image of latemar" class="card__image" />
+                            <div class="card__description">
+                                <h2 class="card__title">Latemar</h2>
+                                <img src="../images/heart.svg" alt="" class="card__like_button" />
+                            </div>
+                        </li>
 
-                    <div class="card">
-                        <img src="./images/vanoise.jpg" alt="" class="card__image" />
-                        <div class="card__footer">
-                            <p class="card__title">Vanoise Nationa...</p>
-                            <img src="./images/heart.jpg" alt="" class="card__footer_like_button" />
-                        </div>
-                    </div>
+                        <li class="card">
+                            <img src="./images/vanoise.jpg" alt="image of vanoise" class="card__image" />
+                            <div class="card__description">
+                                <h2 class="card__title">Vanoise National</h2>
+                                <img src="../images/heart.svg" alt="" class="card__like_button" />
+                            </div>
+                        </li>
 
-                    <div class="card">
-                        <img src="./images/lago.jpg" alt="" class="card__image" />
-                        <div class="card__footer">
-                            <p class="card__title">Lago di Braies</p>
-                            <img src="./images/heart.jpg" alt="" class="card__footer_like_button" />
-                        </div>
-                    </div>
-                </div>
+                        <li class="card">
+                            <img src="./images/lago.jpg" alt="image of largo" class="card__image" />
+                            <div class="card__description">
+                                <h2 class="card__title">Lago di Braies</h2>
+                                <img src="../images/heart.svg" alt="" class="card__like_button" />
+                            </div>
+                        </li>
+                    </ul>
+                    </section>
+                <!------------FOOTER------------->
+                <footer class="footer">
+                    <p class="footer__copyright">
+                        &copy; 2024 Joshua Moten
+                    </p>
+                </footer>
             </main>
-            <!------------FOOTER------------->
-            <footer class="footer">
-                <p class="footer__copyright">
-                    &copy; 2024 Joshua Moten
-                </p>
-            </footer>
         </div>
     </div>
 </body>

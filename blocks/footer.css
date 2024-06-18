@@ -1,10 +1,30 @@
 .footer {
- /* this will be a display */
- /* width: 318px;
- height: 18px;
- margin-top: 67px; */
+ /* display: flex;
+ flex-direction: column;
+ justify-content: flex-start; */
+ max-width: 318px;
+ max-height: 18px;
+ margin: 67px 0 60px;
+ }
+ 
+ .footer__copyright{
+    color: #545454;
+    margin: 0 auto;
 }
 
-.footer__copyright{
-    /* color: #545454; */
+@media screen and (max-width:320px){
+    .footer {
+        /* display: flex;
+        flex-direction: column;
+        justify-content: flex-start; */
+        max-width: 318px;
+        max-height: 18px;
+        margin: 48px 19px 36px;
+    }
+        
+    .footer__copyright{
+        color: #545454;
+        margin: 0 auto;
+    }
+    
 }
