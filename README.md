@@ -12,7 +12,8 @@ This project is made so all the elements are displayed correctly on popular scre
   
 **Figma**  
   
-* [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
+* [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
+* [Link to the project video](https://www.loom.com/share/08cb7dc3cb2944a897cef9cded91d582?sid=757bedf4-c2bb-416a-99f8-bda80fe9652d)
   
 **Images**  
   
