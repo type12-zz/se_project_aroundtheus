@@ -34,6 +34,9 @@ grid-template-columns: minmax(auto 415px) auto;
     line-height: 48px;
     max-width: 415px;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     }
         
 .profile__subtitle{
@@ -51,11 +54,20 @@ grid-template-columns: minmax(auto 415px) auto;
     grid-area: button;
     width: 24px;
     height: 24px;
+    /* margin-top: 15px ; */
+    margin-left: 10px; 
+    margin-right: 20px;
     border: 1px solid #FFFFFF;
     background: transparent url('../images/edit-btn.svg') center no-repeat;
     cursor: pointer;
-    }
-        
+}
+
+.profile__edit_button:hover {
+    background: transparent url('../images/edit-btn.svg') center no-repeat;
+    -webkit-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
+    -moz-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
+}
+
 .profile__add_button {
     width: 150px;
     height: 50px;
@@ -65,12 +77,28 @@ grid-template-columns: minmax(auto 415px) auto;
     cursor: pointer;
 }
 
-@media screen and (min-width:320px) and (max-width: 580px) {
+.profile__add_button:hover {
+    background: transparent url('../images/plus.svg') center no-repeat;
+    -webkit-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
+    -moz-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
+}
+
+
+
+/* MEDIA QUERIES */
+@media screen and (max-width:780px) {
+    
+}
+
+/* SEPARATE MEDIA */
+
+@media screen and (max-width: 480px) {
     .profile {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 0 auto;
     }
 
     .profile__image{
@@ -95,7 +123,9 @@ grid-template-columns: minmax(auto 415px) auto;
         max-width: 196px;
         max-height:22px;
         margin: 0;
-        background-color: plum;
+        margin-left: 20px;
+        
+        /* background-color: plum; */
         }
         
     .profile__subtitle{
@@ -112,9 +142,12 @@ grid-template-columns: minmax(auto 415px) auto;
     .profile__edit_button {
         /* border: .5px solid red; */
         grid-area: button;
-        width: 7.5px;
-        height: 7.49px;
-        margin-right: 34px;
+        width: 10px;
+        height: 10px;
+        /* margin-right: 0px; */
+        /* margin-left: 20px; */
+        padding: 10px;
+        align-self: center;
         background: transparent url('../images/edit-btn.svg') center no-repeat;
         cursor: pointer;
         }
