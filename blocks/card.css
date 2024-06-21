@@ -44,7 +44,7 @@
 }
 
 .card__title {
-    font-family: Inter, 'Arial', sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     font-weight: 900;
     font-size: 24px;
     line-height: 29.05px;
@@ -114,7 +114,7 @@
     }
 
     .card__title {
-    font-family: Impact, 'Arial', sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     font-weight: 900;
     font-size: 24px;
     line-height: 29.05px;
