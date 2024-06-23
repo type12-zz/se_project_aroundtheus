@@ -11,8 +11,11 @@
     }
 } */
 
-/* @media screen and (min-width:320px) {
+@media screen and (min-width:320px) {
    .content {
     max-width: 100%;
+   margin-left: 0;
+   margin-right:0;
+    padding: 0;
    }
-} */
+}

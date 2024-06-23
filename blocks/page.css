@@ -17,6 +17,7 @@
   width: 100%;
   position: relative;
   margin: 0 auto;
+  /* background-color: plum;; */
 }
 
 @media screen and (max-width: 780px) {
@@ -27,15 +28,11 @@
 
 @media screen and (max-width: 480px) {
   .page__content {
-    display: flex;
-    flex-direction: column;
     margin: 0 5px;
   }
 
   .page__section {
-    max-width: 480px;
-    width: 100%;
-    position: relative;
-    margin: 0 auto;
+   margin: 0;
+   padding: 0;
   }
 }
