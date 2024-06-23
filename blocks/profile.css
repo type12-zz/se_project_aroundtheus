@@ -72,19 +72,19 @@
 }
 
 .profile__add_button {
-    width: 150px;
-    height: 50px;
-    margin-left: auto;
-    border: 2px solid #ffffff;
-    background: transparent url("../images/plus.svg") center no-repeat;
-    cursor: pointer;
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
+  border: 2px solid #ffffff;
+  background: transparent url("../images/plus.svg") center no-repeat;
+  cursor: pointer;
 }
 
 .profile__add_button:hover {
-    background: transparent url("../images/plus.svg") center no-repeat;
-    opacity: 60%;
-    -webkit-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
-    -moz-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
+  background: transparent url("../images/plus.svg") center no-repeat;
+  opacity: 60%;
+  -webkit-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
+  -moz-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
 }
 
 /* MEDIA QUERIES */
@@ -95,10 +95,9 @@
 
 @media screen and (max-width: 480px) {
   .profile {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin: 0 auto;
   }
 
@@ -106,6 +105,7 @@
     margin-bottom: 30px;
     width: 120px;
     height: 120px;
+    margin-right: 0;
   }
 
   .profile__info {
@@ -119,7 +119,7 @@
 
   .profile__title {
     grid-area: title;
-    font-family: "Inter", "Arial", sans-serif;
+    /* font-family: "Inter", "Arial", sans-serif; */
     font-weight: 500;
     font-size: 22px;
     line-height: 26.63px;
@@ -140,20 +140,20 @@
     /* margin-top: 10px; */
     max-width: 415px;
     margin-top: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .profile__edit_button {
-    /* border: .5px solid red; */
-    grid-area: button;
-    width: 10px;
-    height: 10px;
+    width: 18px;
+    height: 18px;
     /* margin-right: 0px; */
     /* margin-left: 20px; */
     padding: 10px;
     align-self: center;
-    background: transparent url("../images/edit-btn.svg") center no-repeat;
-    cursor: pointer;
   }
+
 
   .profile__add_button {
     align-self: center;
