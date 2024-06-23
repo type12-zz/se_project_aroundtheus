@@ -1,0 +1,6 @@
+.cards {
+    /* fonts */
+    margin-top: 51px;
+    display: flex;
+    flex-direction: column;
+}

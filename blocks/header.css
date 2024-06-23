@@ -1,25 +1,25 @@
 .header {
-    height: 74px;
-    border-bottom: 1px solid #545454;
-    margin-top: 45px;
+  /* height: 74px; */
+  border-bottom: 1px solid rgba(84, 84, 84, 1);
+  margin-top: 45px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 580px) {
-    .header{
-        max-width: 282px;
-        max-height: 286px;
-        padding: 28px 167px 0 27px;
-        /* background-color: aquamarine; */
-        margin: 0;
-    }
+  .header {
+    max-width: 282px;
+    /* max-height: 286px; */
+    padding: 28px 167px 0 27px;
+    /* background-color: aquamarine; */
+    margin: 0;
+  }
 
-    .header__logo {
-        width: 126px;
-        height: 24px;
-    }
+  .header__logo {
+    width: 126px;
+    height: 24px;
+  }
 }
 
 .header__logo {
-    width: 173px;
-    height: 33px; 
+  width: 173px;
+  height: 33px;
 }
