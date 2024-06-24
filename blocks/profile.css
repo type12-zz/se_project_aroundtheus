@@ -113,7 +113,7 @@
     place-items: center;
     grid-template-areas:
       "title button"
-      "description .";
+      "description description";
     grid-template-columns: minmax(auto, 282px);
   }
 
@@ -132,17 +132,13 @@
   }
 
   .profile__subtitle {
-    grid-area: description;
-    font-family: "Inter", "Arial", sans-serif;
+    /* grid-area: description; */
+    /* font-family: "Inter", "Arial", sans-serif; */
     font-weight: 400;
     font-size: 14px;
     line-height: 16.94px;
-    /* margin-top: 10px; */
-    max-width: 415px;
+    max-width: 320px;
     margin-top: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .profile__edit_button {
