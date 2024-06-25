@@ -1,12 +1,3 @@
-.cards__list {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
-  padding: 0;
-  margin: 0;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -40,39 +31,25 @@
   overflow: hidden;
   text-overflow: ellipsis;
   /* width: 193px; */
+  margin: 0;
+  padding: 0;
 }
 
-.card__like_button {
+.card__like {
   background: transparent url(../images/hearts.svg) center no-repeat;
+  border: none;
   width: 21px;
   height: 18px;
   cursor: pointer;
 }
 
-.card__like_button:hover {
+.card__like:hover {
   opacity: 50%;
   cursor: pointer;
 }
 
 @media screen and (min-width: 320px) and (max-width: 580px) {
-  .cards__list {
-    overflow: hidden;
-  }
-
   .card {
-    overflow: hidden;
-  }
-
-  .card__image {
-    overflow: hidden;
-  }
-
-  .card__description {
-    overflow: hidden;
-  }
-
-  .card__title {
-    /* width: 100%; */
     overflow: hidden;
   }
 }

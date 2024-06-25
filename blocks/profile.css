@@ -52,7 +52,7 @@
   text-overflow: ellipsis;
 }
 
-.profile__edit_button {
+.profile__edit {
   grid-area: button;
   width: 24px;
   height: 24px;
@@ -64,11 +64,8 @@
   cursor: pointer;
 }
 
-.profile__edit_button:hover {
-  background: transparent url("../images/edit-btn.svg") center no-repeat;
+.profile__edit:hover {
   opacity: 60%;
-  -webkit-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
-  -moz-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
 }
 
 .profile__add_button {
@@ -76,15 +73,13 @@
   height: 50px;
   margin-left: auto;
   border: 2px solid #ffffff;
+  border-radius: 2px;
   background: transparent url("../images/plus.svg") center no-repeat;
   cursor: pointer;
 }
 
 .profile__add_button:hover {
-  background: transparent url("../images/plus.svg") center no-repeat;
   opacity: 60%;
-  -webkit-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
-  -moz-filter: contrast(2) brightness(0.8) saturate(1.5) grayscale(0.5);
 }
 
 /* MEDIA QUERIES */
@@ -135,7 +130,7 @@
     margin-top: 14px;
   }
 
-  .profile__edit_button {
+  .profile__edit {
     width: 18px;
     height: 18px;
     /* margin-right: 0px; */

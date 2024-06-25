@@ -3,13 +3,15 @@
  flex-direction: column;
  justify-content: flex-start; */
   max-width: 318px;
-  max-height: 18px;
+  /* max-height: 18px; */
   margin: 67px 0 60px;
 }
 
 .footer__copyright {
   color: #545454;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  /* margin: 0 auto; */
 }
 
 @media screen and (min-width: 665px) and (max-width: 917px) {
@@ -18,10 +20,10 @@
     justify-content: flex-start;
     align-items: start;
   }
+
   .footer__copyright {
     /* margin-left: 18%; */
     max-width: 665px; /* or any other max-width value */
-    position: absolute;
     left: calc(20.8% - (100% / 15));
   }
 }
