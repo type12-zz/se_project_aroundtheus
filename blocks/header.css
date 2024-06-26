@@ -10,6 +10,13 @@
   margin-bottom: 41px;
 }
 
+@media screen and (min-width: 649px) and (max-width: 1279px) {
+  .header {
+    display: flex;
+    align-items: center;
+  }
+}
+
 @media screen and (min-width: 320px) and (max-width: 580px) {
   .header {
     max-width: 298px;
