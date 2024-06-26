@@ -4,7 +4,7 @@
  justify-content: flex-start; */
   /* max-width: 318px; */
   /* max-height: 18px; */
-  margin: 67px 0 60px;
+  margin: 67px auto 60px;
 }
 
 .footer__copyright {
@@ -18,7 +18,7 @@
   /* margin: 0 auto; */
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1630px) {
+/* @media screen and (min-width: 1280px) and (max-width: 1630px) {
   .footer {
     margin: auto;
     padding-top: 36px;
@@ -28,7 +28,7 @@
   .footer__copyright {
     max-width: 917px;
   }
-}
+} */
 
 @media screen and (min-width: 557px) and (max-width: 1279px) {
   .footer {
