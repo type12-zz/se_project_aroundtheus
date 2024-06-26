@@ -19,7 +19,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 580px) {
   .header {
-    max-width: 298px;
+    /* max-width: 298px; */
     /* max-height: 286px; */
     padding: 28px 5px 0 17px;
     margin: 0;
