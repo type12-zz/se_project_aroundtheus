@@ -57,7 +57,6 @@
   grid-area: button;
   width: 24px;
   height: 24px;
-  /* margin-top: 15px ; */
   margin-left: 10px;
   margin-right: 20px;
   border: 1px solid #ffffff;
@@ -89,11 +88,8 @@
     align-self: center;
     width: 150px;
     height: 50px;
-    /* margin: 36px 0 0 0; */
   }
 }
-
-/* SEPARATE MEDIA */
 
 @media screen and (max-width: 480px) {
   .profile {
@@ -109,7 +105,6 @@
 
   .profile__info {
     place-items: center;
-    /* grid-template-columns: minmax(auto, 282px); */
   }
 
   .profile__title {
@@ -130,8 +125,6 @@
     width: 18px;
     height: 18px;
     background-size: 7.5px 7.5px;
-    /* margin-right: 0px; */
-    /* margin-left: 20px; */
     padding: 5.05px;
     align-self: center;
   }
