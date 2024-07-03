@@ -102,7 +102,7 @@
 
 @media screen and (min-width: 321px) and (max-width: 985px){
     .modal {
-        display: flex;
+        display: none;
         position:relative;
         width: 282px;
         height: 322px;
