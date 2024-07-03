@@ -11,6 +11,7 @@
   grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
+  list-style-type: none;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1630px) {
