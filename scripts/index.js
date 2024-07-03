@@ -30,27 +30,31 @@ let initialCards = [
   },
 ];
 
-
-// find the profile elements in the DOM
+// ELEMENTS
+const cardList = document.querySelector(".cards__list");
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const editButton = document.querySelector(".profile__edit");
 const addButton = document.querySelector(".profile__add");
 const overlay = document.querySelector(".overlay");
 const profileFormElement = document.querySelector('.modal__container');
-const formElement = document.querySelector('.modal__save');
 const modalNameInput = document.querySelector('#modal__input_name');
 const modalJobInput = document.querySelector('#modal__input_job');
 const modal = document.querySelector(".modal");
 const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
 const closeModalBtn = document.querySelector(".modal__close");
-const saveButton = document.querySelector(".modal__save");
+const formSaveButton = document.querySelector(".modal__save");
 
+//EVENT HANDLERS
 closeModalBtn.addEventListener('click', closeModal);
 editButton.addEventListener('click', openModal );
-saveButton.addEventListener('click', handleProfileFormSubmit);
+formSaveButton.addEventListener('click', handleProfileFormSubmit);
 
+// MAPPING ITEMS
+const firstWords = initialCards.map(card => card.name.split(' ')[0]);
+
+// **********JAVASCRIPT FUNCTIONS*********
 
 // CLOSE MODAL
 function closeModal(){
@@ -78,3 +82,29 @@ function handleProfileFormSubmit(evt){
   profileJob.textContent = modalJob.value;
   closeModal();
 }
+
+
+for (let item=0; item < initialCards.length; item++){
+  // loop through initalCard
+  let profileCard = `
+    <li class="card">
+      <img
+        src="${initialCards[item].link}"
+        alt="image of ${firstWords[item]}"
+        class="card__image"
+      />
+      <div class="card__description">
+        <h2 class="card__title">${initialCards[item].name }</h2>
+        <button type="button" class="card__like"></button>
+      </div>
+    </li>
+  `
+  const newCard = document.createElement("li");
+  newCard.innerHTML = profileCard;
+
+  // Place newly created card in cardList
+  cardList.appendChild(newCard);
+}
+
+
+
