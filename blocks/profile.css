@@ -25,7 +25,7 @@
   /* max-height: 120px; */
 }
 
-.profile__title {
+.profile__name {
   grid-area: title;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 500;
@@ -38,7 +38,7 @@
   overflow: hidden;
 }
 
-.profile__subtitle {
+.profile__job {
   grid-area: description;
   font-family: "Inter", "Arial", sans-serif;
   font-weight: 400;
@@ -107,14 +107,14 @@
     place-items: center;
   }
 
-  .profile__title {
+  .profile__name {
     font-size: 22px;
     line-height: 26.63px;
     max-width: 196px;
     margin-left: 20px;
   }
 
-  .profile__subtitle {
+  .profile__job {
     font-size: 14px;
     line-height: 16.94px;
     max-width: 320px;

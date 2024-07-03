@@ -100,10 +100,10 @@
   cursor: pointer;
 }
 
-/* @media screen and (max-width: 430px) {
+@media screen and (min-width: 321px) and (max-width: 985px){
     .modal {
         display: flex;
-        position:absolute;
+        position:relative;
         width: 282px;
         height: 322px;
         margin: 25px 22px;
@@ -112,7 +112,7 @@
     
     .modal__overlay {
         display: none;
-        position: fixed;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
@@ -154,7 +154,7 @@
         height: 46px;
         margin-bottom: 25px;
     }
-} */
+}
 
 @media screen and (max-width: 320px) {
   .modal {
@@ -162,7 +162,7 @@
     position: absolute;
     width: 282px;
     height: 322px;
-    /* margin: 123px 19px; */
+    margin: 123px 19px;
     z-index: 2;
   }
 
@@ -226,6 +226,7 @@
     margin-bottom: 0 0 25px 0;
     padding: 14px 100px;
   }
+  
 }
 
 .modal__opened {
