@@ -39,6 +39,7 @@ const editButton = document.querySelector(".profile__edit");
 const addButton = document.querySelector(".profile__add");
 const overlay = document.querySelector(".overlay");
 const profileFormElement = document.querySelector('.modal__container');
+const clickedModalInputs = document.querySelector(".modal__input");
 const modalNameInput = document.querySelector('#modal__input_name');
 const modalJobInput = document.querySelector('#modal__input_job');
 const modal = document.querySelector(".modal");
@@ -51,6 +52,9 @@ const formSaveButton = document.querySelector(".modal__save");
 closeModalBtn.addEventListener('click', closeModal);
 editButton.addEventListener('click', openModal );
 formSaveButton.addEventListener('click', handleProfileFormSubmit);
+clickedModalInputs.forEach((input) => {
+  input.addEventListener('click', clearModalInputField)
+});
 
 // MAPPING ITEMS
 const firstWords = initialCards.map(card => card.name.split(' ')[0]);
@@ -82,6 +86,15 @@ function handleProfileFormSubmit(evt){
   profileName.textContent = modalName.value;
   profileJob.textContent = modalJob.value;
   closeModal();
+}
+
+
+// CLEAR MODAL INPUT FIELDS
+function clearModalInputField(evt) {
+  let target = evt.target;
+  if (target.type === "text"){
+    target.value = "";
+  }
 }
 
 // CREATE CARD 
