@@ -32,6 +32,7 @@ let initialCards = [
 
 // ELEMENTS
 const cardList = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#cardTemplate").content;
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const editButton = document.querySelector(".profile__edit");
@@ -83,28 +84,44 @@ function handleProfileFormSubmit(evt){
   closeModal();
 }
 
+// CREATE CARD 
+// function getCardElement() {
+//   for (let item=0; item < initialCards.length; item++){
+//     // loop through initalCard
+//     let profileCard = `
+//       <li class="card">
+//         <img
+//           src="${initialCards[item].link}"
+//           alt="image of ${firstWords[item]}"
+//           class="card__image"
+//         />
+//         <div class="card__description">
+//           <h2 class="card__title">${initialCards[item].name }</h2>
+//           <button type="button" class="card__like"></button>
+//         </div>
+//       </li>
+//     `
+//     const newCard = document.createElement("li");
+//     newCard.innerHTML = profileCard;
 
-for (let item=0; item < initialCards.length; item++){
-  // loop through initalCard
-  let profileCard = `
-    <li class="card">
-      <img
-        src="${initialCards[item].link}"
-        alt="image of ${firstWords[item]}"
-        class="card__image"
-      />
-      <div class="card__description">
-        <h2 class="card__title">${initialCards[item].name }</h2>
-        <button type="button" class="card__like"></button>
-      </div>
-    </li>
-  `
-  const newCard = document.createElement("li");
-  newCard.innerHTML = profileCard;
+//     // Place newly created card in cardList
+//     cardList.appendChild(newCard);
+//   }
+// }
 
-  // Place newly created card in cardList
-  cardList.appendChild(newCard);
+
+
+function getCardElement(data) {
+  for (let item=0; item < data.length; item++){
+    // loop through initalCard
+    const cardElement = cardTemplate.cloneNode(true);
+    cardElement.querySelector(".card__image").src = data[item].link;
+    cardElement.querySelector(".card__image").alt = `image of ${firstWords[item]}`
+    cardElement.querySelector(".card__title").textContent = data[item].name
+    cardList.appendChild(cardElement);
+  }
 }
-
+// CALLING FUNCTIONS
+getCardElement(initialCards);
 
 
