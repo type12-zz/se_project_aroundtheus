@@ -109,7 +109,7 @@
 @media screen and (max-width: 768px) {
   .modal {
     display: none;
-    position: fixed;
+    position: relative;
     /* width: 282px; */
     /* height: 322px; */
     margin: 25px 125px;
