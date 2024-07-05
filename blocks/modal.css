@@ -1,9 +1,12 @@
 .modal {
   display: none;
-  position: absolute;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 430px;
   height: 330px;
-  /* border: 1px solid rgba(0, 0, 0, 1); */
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 1);
   margin: 195px 425px;

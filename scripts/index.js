@@ -56,9 +56,6 @@ formSaveButton.addEventListener("click", handleProfileFormSubmit);
 //   input.addEventListener("click", clearModalInputField);
 // });
 
-// MAPPING ITEMS
-const firstWords = initialCards.map((card) => card.name.split(" ")[0]);
-
 // **********JAVASCRIPT FUNCTIONS*********
 
 // CLOSE MODAL
@@ -126,26 +123,23 @@ function clearModalInputField(evt) {
 // CREATE CARDS
 function createCard(data) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImageLink = (cardElement.querySelector(".card__image").src =
-    data.link);
-  const cardImageAlt = (cardElement.querySelector(
-    ".card__image"
-  ).alt = `image of ${firstWords[data.length - 1]}`);
-  const cardImageTitle = (cardElement.querySelector(
-    ".card__title"
-  ).textContent = data.name);
-  cardImageLink;
-  cardImageAlt;
-  cardImageTitle;
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardTitle = cardElement.querySelector(".card__title");
+  const firstWords = data.name.split(" ")[0];
+  cardImage.src = data.link;
+  cardImage.alt = `image of ${firstWords}`;
+  cardTitle.textContent = data.name;
 
   return cardElement;
 }
 
 // RENDER CARDS
-function renderCard(data) {
-  const cardElement = createCard(data);
+function renderCard(data, firstWords) {
+  const cardElement = createCard(data, firstWords);
   cardsList.prepend(cardElement);
 }
 
 // CALLING FUNCTIONS
-initialCards.forEach(renderCard);
+initialCards.forEach((card) => {
+  renderCard(card);
+});
