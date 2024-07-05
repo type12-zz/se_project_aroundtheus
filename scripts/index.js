@@ -1,4 +1,4 @@
-let initialCards = [
+const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -31,7 +31,7 @@ let initialCards = [
 ];
 
 // ELEMENTS
-const cardList = document.querySelector(".cards__list");
+const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#cardTemplate").content;
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
@@ -50,11 +50,11 @@ const formSaveButton = document.querySelector(".modal__save");
 
 //EVENT HANDLERS
 closeModalBtn.addEventListener("click", closeModal);
-editButton.addEventListener("click", openModal);
+editButton.addEventListener("click", openEditProfileModal);
 formSaveButton.addEventListener("click", handleProfileFormSubmit);
-clickedModalInputs.forEach((input) => {
-  input.addEventListener("click", clearModalInputField);
-});
+// clickedModalInputs.forEach((input) => {
+//   input.addEventListener("click", clearModalInputField);
+// });
 
 // MAPPING ITEMS
 const firstWords = initialCards.map((card) => card.name.split(" ")[0]);
@@ -68,15 +68,18 @@ function closeModal() {
 }
 
 // OPEN MODAL
-function openModal() {
+function openEditProfileModal() {
   if (!modal.classList.contains("modal__opened")) {
     modal.classList.add("modal__opened");
     overlay.classList.add("modal__opened");
-    modalNameInput.value = profileName.textContent;
-    modalJobInput.value = profileJob.textContent;
-  } else {
-    closeModal(profileFormElement);
+    fillProfileForm();
   }
+}
+
+//  FILL PROFILE FORM
+function fillProfileForm() {
+  modalNameInput.value = profileName.textContent;
+  modalJobInput.value = profileJob.textContent;
 }
 
 // MODAL FORM SUBMISSION
@@ -89,7 +92,7 @@ function handleProfileFormSubmit(evt) {
 
 // CLEAR MODAL INPUT FIELDS
 function clearModalInputField(evt) {
-  let target = evt.target;
+  const target = evt.target;
   if (target.type === "text") {
     target.value = "";
   }
@@ -120,17 +123,29 @@ function clearModalInputField(evt) {
 //   }
 // }
 
-function getCardElement(data) {
-  for (let item = 0; item < data.length; item++) {
-    // loop through initalCard
-    const cardElement = cardTemplate.cloneNode(true);
-    cardElement.querySelector(".card__image").src = data[item].link;
-    cardElement.querySelector(
-      ".card__image"
-    ).alt = `image of ${firstWords[item]}`;
-    cardElement.querySelector(".card__title").textContent = data[item].name;
-    cardList.appendChild(cardElement);
-  }
+// CREATE CARDS
+function createCard(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageLink = (cardElement.querySelector(".card__image").src =
+    data.link);
+  const cardImageAlt = (cardElement.querySelector(
+    ".card__image"
+  ).alt = `image of ${firstWords[data.length - 1]}`);
+  const cardImageTitle = (cardElement.querySelector(
+    ".card__title"
+  ).textContent = data.name);
+  cardImageLink;
+  cardImageAlt;
+  cardImageTitle;
+
+  return cardElement;
 }
+
+// RENDER CARDS
+function renderCard(data) {
+  const cardElement = createCard(data);
+  cardsList.prepend(cardElement);
+}
+
 // CALLING FUNCTIONS
-getCardElement(initialCards);
+initialCards.forEach(renderCard);
