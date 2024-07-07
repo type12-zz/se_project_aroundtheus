@@ -60,15 +60,13 @@ formSaveButton.addEventListener("click", handleProfileFormSubmit);
 
 // CLOSE MODAL
 function closeModal() {
-  modal.classList.remove("modal__opened");
-  overlay.classList.remove("modal__opened");
+  modal.classList.remove("modal_opened");
 }
 
 // OPEN MODAL
 function openEditProfileModal() {
-  if (!modal.classList.contains("modal__opened")) {
-    modal.classList.add("modal__opened");
-    overlay.classList.add("modal__opened");
+  if (!modal.classList.contains("modal_opened")) {
+    modal.classList.add("modal_opened");
     fillProfileForm();
   }
 }

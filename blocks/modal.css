@@ -1,4 +1,4 @@
-.modal {
+/* .modal {
   display: none;
   justify-content: center;
   align-items: center;
@@ -11,11 +11,13 @@
   background-color: rgba(255, 255, 255, 1);
   margin: 195px 425px;
   z-index: 1;
-}
+} */
 
-.overlay {
+.modal {
   display: none;
   position: fixed;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -24,11 +26,22 @@
   z-index: 1;
 }
 
+.modal__container {
+  position: relative;
+  width: 430px;
+  height: 330px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 1;
+}
+
 .modal__close {
   display: flex;
   position: absolute;
-  bottom: 329.72px;
+  /* bottom: 329.72px; */
   left: 424.72px;
+  top: -49px;
+  right: 120px;
   width: 40px;
   height: 40px;
   border: none;
@@ -112,30 +125,32 @@
 @media screen and (max-width: 768px) {
   .modal {
     display: none;
-    position: relative;
-    /* width: 282px; */
-    /* height: 322px; */
+    position: fixed;
+    top: -100x;
+    left: -120px;
+    /* width: 282px;
+    height: 322px; */
+    width: 100%;
+    height: 100vh;
     margin: 25px 125px;
     z-index: 1;
   }
 
-  .modal__overlay {
-    display: none;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+  .modal__container {
+    position: fixed;
+    /* width: 282px; */
+    height: 322px;
+    /* width: 100%; */
+    /* height: 100%; */
   }
 
   .modal__close {
-    display: block;
+    display: flex;
     position: absolute;
     width: 26px;
     height: 26px;
-    /* left: 244px; */
+    /* left: 339px;
+    top: -33px; */
     margin-bottom: 18.62px;
     z-index: 3;
   }
@@ -173,32 +188,39 @@
   .modal {
     display: none;
     position: absolute;
-    width: 282px;
-    height: 322px;
+    top: 0;
+    left: 0;
+    /* width: 282px; */
+    /* height: 322px; */
+    width: 100%;
+    height: 100%;
     margin: 123px 19px;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
 
-  .overlay {
-    display: none;
-    position: fixed;
+  .modal__container {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 282px;
+    height: 322px;
     z-index: 1;
   }
 
   .modal__close {
-    display: block;
-    position: absolute;
+    display: flex;
+    position: relative;
     width: 26px;
     height: 26px;
-    /* top: 72px; */
-    left: 244px;
+    /* top: 10px;
+    left: 10px; */
+    left: 265px;
+    /* top: -33px; */
     margin-bottom: 18.62px;
-    z-index: 3;
+    z-index: 1;
   }
 
   .modal__title {
@@ -217,7 +239,7 @@
     font-size: 14px;
     line-height: 16.94px;
     width: 238px;
-    height: 46px;
+    /* height: 46px; */
   }
 
   .modal__input:nth-child(1) {
@@ -241,6 +263,6 @@
   }
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
