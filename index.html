@@ -69,12 +69,41 @@
               </form>
             </div>
           </section>
+          <!-- ------------- ADD CARD MODAL----------- -->
+          <section class="add_modal">
+            <div class="add_modal__container">
+              <button
+                type="button"
+                aria-label="button to close the modal"
+                class="add_modal__close"
+              ></button>
+              <h2 class="add_modal__title">New Place</h2>
+              <form class="add_modal__form">
+                <input
+                  type="text"
+                  placeholder="Title"
+                  class="add_modal__input"
+                  value=""
+                  id="add_modal__input_title"
+                />
+                <input
+                  type="url"
+                  placeholder="Image Url"
+                  class="add_modal__input"
+                  value=""
+                  id="add_modal__input_url"
+                />
+                <button type="submit" class="modal__save">Save</button>
+              </form>
+            </div>
+          </section>
           <!-- -------------PROFILE CONTENT---------------- -->
           <section class="cards page__section">
             <ul class="cards__list">
               <!--cards are being made dynamically in JavaScript-->
               <template id="cardTemplate">
                 <li class="card">
+                  <img src="" alt="" class="card__trash_image" />
                   <img src="" alt="" class="card__image" />
                   <div class="card__description">
                     <h2 class="card__title"></h2>
