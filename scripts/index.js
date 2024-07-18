@@ -57,22 +57,28 @@ const addModalCardTitle = addCardModalFormElement.querySelector("#add_modal__inp
 const addModalCardUrl = addCardModalFormElement.querySelector("#add_modal__input_url");
 const formCardSaveButton = addCardModalFormElement.querySelector(".modal__save");
 
-const likeCardButton = document.querySelector(".card__like");
+const likeCardButton = document.querySelectorAll(".card__like");
 const deleteCardButton = cardsList.querySelector(".card__trash_image");
 
 
 const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
+const imageModal = document.querySelector(".image_modal");
+const closeImageModalBtn = document.querySelector(".image_modal__close");
+const imageModalContainer = document.querySelector(".image_modal__containter");
+const imageModalImage = document.querySelector(".image_modal__image");
 
 //EVENT HANDLERS
 closeModalBtn.addEventListener("click", closeModal);
 closeAddCardModalBtn.addEventListener("click", closeAddCardModal);
+closeImageModalBtn.addEventListener("click", closeImageModal);
 editButton.addEventListener("click", openEditProfileModal);
 addButton.addEventListener("click", openAddCardModal);
 formSaveButton.addEventListener("click", handleProfileFormSubmit);
 formCardSaveButton.addEventListener("click", handleAddCardFormSubmit);
 cardsList.addEventListener("click", handleLikeCard);
 cardsList.addEventListener("click", handleDeleteCard);
+cardsList.addEventListener("click", openImageModal);
 // cardsList.addEventListener("click", () => {
 //   console.log(`${data.name} card was clicked`);
 // });
@@ -88,6 +94,10 @@ function closeAddCardModal() {
   addCardModal.classList.remove("add_modal_opened");
 }
 
+function closeImageModal() {
+  imageModal.classList.remove("image_modal_opened");
+}
+
 // OPEN MODAL
 function openEditProfileModal() {
   if (!modal.classList.contains("modal_opened")) {
@@ -100,6 +110,18 @@ function openAddCardModal() {
   if (!addCardModal.classList.contains("add_modal_opened")) {
     addCardModal.classList.add("add_modal_opened");
     fillCardForm();
+  }
+}
+
+function openImageModal(evt) {
+  if (!imageModal.classList.contains("image_modal_opened")) {
+    imageModal.classList.add("image_modal_opened");
+    if (evt.target.classList.contains("card__image")) {
+      const cardImage = evt.target;
+      imageModalImage.src = cardImage.src;
+      imageModalImage.alt = cardImage.alt;
+      console.log(`${imageModalImage.src} card was clicked`);
+    }
   }
 }
 
