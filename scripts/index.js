@@ -48,7 +48,7 @@ const closeModalBtn = document.querySelector(".modal__close");
 const formSaveButton = document.querySelector(".modal__save");
 
 
-const addCardModal = document.querySelector(".add_modal");
+const addCardModal = document.querySelector(".modal_type_add");
 const addCardFormContainerElement = document.querySelector(".add_modal__container");
 const closeAddCardModalBtn = document.querySelector(".add_modal__close");
 const addCardModalFormElement = document.querySelector(".add_modal__form");
@@ -63,7 +63,7 @@ const deleteCardButton = cardsList.querySelector(".card__trash_image");
 
 const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
-const imageModal = document.querySelector(".image_modal");
+const imageModal = document.querySelector(".modal_type_image");
 const closeImageModalBtn = document.querySelector(".image_modal__close");
 const imageModalContainer = document.querySelector(".image_modal__containter");
 const imageModalImage = document.querySelector(".image_modal__image");

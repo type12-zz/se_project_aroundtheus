@@ -27,8 +27,10 @@
     position: absolute;
     /* top: 15px;
     right: 130px; */
-    top: -36px;
-    right: 8px;
+    /* top: -36px;
+    right: 8px; */
+    top: -48px;
+    right: -40px;
     width: 40px;
     height: 40px;
     border: none;
@@ -71,4 +73,53 @@
     left: 0px;
     margin-top: 10px;
     /* background-color: pink; */
+}
+
+@media screen and (max-width: 1280px) {
+    .image_modal__container {
+        width: 240px;
+        height: 299px;
+        margin: 0;
+    }
+    
+    .image_modal__image{
+        position: relative;
+        top: 20px;
+        width: 433px;
+        height: 540px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .image_modal__close {
+        display: flex;
+        position: absolute;
+        top: -48px;
+        right: -230px;
+        
+    }
+}
+@media screen and (max-width: 768px) {
+    .image_modal__container {
+        width: 240px;
+        height: 299px;
+        margin: 0;
+    }
+    
+}
+
+@media screen and (max-width: 320px) {
+    .image_modal__container {
+        width: 75vw;
+        height: 75vh;;
+        margin: 0;
+    }
+
+    .image_modal__image{
+        width: 240px;
+        height: 299px;
+        margin: 0;
+        padding: 0;
+    }
+    
 }
