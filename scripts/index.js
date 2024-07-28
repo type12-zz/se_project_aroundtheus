@@ -39,7 +39,7 @@ const editButton = document.querySelector(".profile__edit");
 const addButton = document.querySelector(".profile__add");
 const cardImage = cardTemplate.querySelector(".card__image");
 
-const profileModal = document.querySelector(".modal");
+const profileModal = document.querySelector(".modal_type_profile");
 // const profileFormElement = document.querySelector(".modal__container");
 // const clickedModalInputs = document.querySelectorAll(".modal__input");
 const modalNameInput = document.querySelector("#modal__input_name");
@@ -87,7 +87,7 @@ cardsList.addEventListener("click", openImageModal);
 
 // CLOSE MODAL
 function closeModal() {
-  modal.classList.remove("modal_opened");
+  profileModal.classList.remove("modal_opened");
 }
 
 function closeAddCardModal() {
@@ -100,8 +100,8 @@ function closeImageModal() {
 
 // OPEN MODAL
 function openEditProfileModal() {
-  if (!modal.classList.contains("modal_opened")) {
-    modal.classList.add("modal_opened");
+  if (!profileModal.classList.contains("modal_opened")) {
+    profileModal.classList.add("modal_opened");
     fillProfileForm();
   }
 }
