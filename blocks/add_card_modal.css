@@ -1,4 +1,4 @@
-.add_modal {
+/* .add_modal {
   display: none;
   position: fixed;
   justify-content: center;
@@ -9,16 +9,16 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
-}
+} */
 
-.add_modal__container {
+/* .add_modal__container {
   position: relative;
   width: 430px;
   height: 330px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 1);
   z-index: 1;
-}
+} */
 
 .add_modal__close {
   display: flex;
