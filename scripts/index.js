@@ -39,9 +39,9 @@ const editButton = document.querySelector(".profile__edit");
 const addButton = document.querySelector(".profile__add");
 const cardImage = cardTemplate.querySelector(".card__image");
 
-const modal = document.querySelector(".modal");
-const profileFormElement = document.querySelector(".modal__container");
-const clickedModalInputs = document.querySelectorAll(".modal__input");
+const profileModal = document.querySelector(".modal");
+// const profileFormElement = document.querySelector(".modal__container");
+// const clickedModalInputs = document.querySelectorAll(".modal__input");
 const modalNameInput = document.querySelector("#modal__input_name");
 const modalJobInput = document.querySelector("#modal__input_job");
 const closeModalBtn = document.querySelector(".modal__close");
@@ -50,21 +50,21 @@ const formSaveButton = document.querySelector(".modal__save");
 
 const addCardModal = document.querySelector(".modal_type_add");
 const addCardFormContainerElement = document.querySelector(".add_modal__container");
-const closeAddCardModalBtn = document.querySelector(".add_modal__close");
-const addCardModalFormElement = document.querySelector(".add_modal__form");
-const clickedAddModalFormCardInputs = document.querySelectorAll(".add_modal__input");
+const closeAddCardModalBtn = document.querySelector(".modal__close");
+const addCardModalFormElement = document.querySelector(".modal__form");
+// const clickedAddModalFormCardInputs = document.querySelectorAll(".add_modal__input");
 const addModalCardTitle = addCardModalFormElement.querySelector("#add_modal__input_title");
 const addModalCardUrl = addCardModalFormElement.querySelector("#add_modal__input_url");
 const formCardSaveButton = addCardModalFormElement.querySelector(".modal__save");
 
-const likeCardButton = document.querySelectorAll(".card__like");
-const deleteCardButton = cardsList.querySelector(".card__trash_image");
+// const likeCardButton = document.querySelectorAll(".card__like");
+// const deleteCardButton = cardsList.querySelector(".card__trash_image");
 
 
 const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
 const imageModal = document.querySelector(".modal_type_image");
-const closeImageModalBtn = document.querySelector(".image_modal__close");
+const closeImageModalBtn = document.querySelector(".modal__close");
 const imageModalContainer = document.querySelector(".image_modal__containter");
 const imageModalImage = document.querySelector(".image_modal__image");
 
