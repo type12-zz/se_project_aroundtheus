@@ -44,7 +44,7 @@ const profileModal = document.querySelector(".modal_type_profile");
 // const clickedModalInputs = document.querySelectorAll(".modal__input");
 const modalNameInput = document.querySelector("#modal__input_name");
 const modalJobInput = document.querySelector("#modal__input_job");
-const closeModalBtn = document.querySelector(".modal__close");
+const closeModalBtns = document.querySelectorAll(".modal__close");
 const formSaveButton = document.querySelector(".modal__save");
 
 
@@ -69,7 +69,7 @@ const imageModalContainer = document.querySelector(".image_modal__containter");
 const imageModalImage = document.querySelector(".image_modal__image");
 
 //EVENT HANDLERS
-closeModalBtn.addEventListener("click", closeModal);
+closeModalBtns.addEventListener("click", closeModal);
 closeAddCardModalBtn.addEventListener("click", closeAddCardModal);
 closeImageModalBtn.addEventListener("click", closeImageModal);
 editButton.addEventListener("click", openEditProfileModal);
