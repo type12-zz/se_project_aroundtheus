@@ -12,7 +12,8 @@
 
 .card__trash_image {
   display: flex;
-  /* background: transparent url(../images/active-trash.svg) center no-repeat; */
+  border: none;
+  background: transparent url(../images/active-trash.svg) center no-repeat;
   /* position: absolute; */
   position: relative;
   width: 18px;
@@ -25,7 +26,7 @@
 }
 
 .card__trash_image:hover {
-  /* background: transparent url(../images/trash.svg) center no-repeat; */
+  background: transparent url(../images/trash.svg) center no-repeat;
   opacity: 60%;
 
 }

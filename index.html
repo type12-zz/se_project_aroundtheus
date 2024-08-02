@@ -75,43 +75,44 @@
               <button
                 type="button"
                 aria-label="button to close the modal"
-                class="modal modal__close"
+                class="modal__close"
               ></button>
-              <h2 class="modal add_modal__title">New Place</h2>
-              <form class="modal modal__form">
+              <h2 class="add_modal__title">New Place</h2>
+              <!-- <form class="modal modal__form"> -->
+              <form class="modal__form">
                 <input
                   type="text"
                   placeholder="Title"
-                  class="modal add_modal__input"
+                  class="add_modal__input"
                   value=""
                   id="add_modal__input_title"
                 />
                 <input
                   type="url"
                   placeholder="Image Url"
-                  class="modal add_modal__input"
+                  class="add_modal__input"
                   value=""
                   id="add_modal__input_url"
                 />
-                <button type="submit" class="modal modal__save">Create</button>
+                <button type="submit" class="modal__save">Create</button>
               </form>
             </div>
           </section>
           <!-- ------------- IMAGE MODAL----------- -->
           <section class="modal modal_type_image" id="image__modal">
-            <div class="modal image_modal__container">
+            <div class="image_modal__container">
               <button
                 type="button"
                 aria-label="button to close the modal"
-                class="modal modal__close"
+                class="modal__close"
               ></button>
               <img
               src=""
               alt="Title"
-              class="modal image_modal__image"
+              class="image_modal__image"
               id=""
               />
-              <h6 class="modal image_modal__title">New Place</h6>
+              <h6 class="image_modal__title">New Place</h6>
             </div>
           </section>
           <!-- -------------PROFILE CONTENT---------------- -->
@@ -120,7 +121,11 @@
               <!--cards are being made dynamically in JavaScript-->
               <template id="cardTemplate">
                 <li class="card">
-                  <img src="" alt="" class="card__trash_image" />
+                  <!-- <img src="" alt="" class="card__trash_image" /> -->
+                  <button 
+                    type="button" 
+                    class="card__trash_image">
+                  </button>
                   <img src="" alt="" class="card__image" />
                   <div class="card__description">
                     <h2 class="card__title"></h2>
