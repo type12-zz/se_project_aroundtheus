@@ -50,12 +50,12 @@ const formSaveButton = document.querySelector(".modal__save");
 
 
 const addCardModal = document.querySelector(".modal_type_add");
-const addCardFormContainerElement = document.querySelector(".add_modal__container");
+const addCardFormContainerElement = document.querySelector(".modal__container");
 const closeAddCardModalBtn = document.querySelector(".modal__close");
-const addCardModalFormElement = document.querySelector(".modal__form");
+const addCardModalFormElement = addCardModal.querySelector(".modal__form");
 // const clickedAddModalFormCardInputs = document.querySelectorAll(".add_modal__input");
-const addModalCardTitle = addCardModalFormElement.querySelector("#add_modal__input_title");
-const addModalCardUrl = addCardModalFormElement.querySelector("#add_modal__input_url");
+const addModalCardTitle = addCardModalFormElement.querySelector("#modal__input_title");
+const addModalCardUrl = addCardModalFormElement.querySelector("#modal__input_url");
 // const formCardSaveButton = addCardModalFormElement.querySelector(".modal__save");
 // const formCardSaveButton = addCardModalFormElement.querySelector(".modal__form");
 
@@ -67,8 +67,8 @@ const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
 const imageModal = document.querySelector(".modal_type_image");
 const closeImageModalBtn = document.querySelector(".modal__close");
-const imageModalContainer = document.querySelector(".image_modal__containter");
-const imageModalImage = document.querySelector(".image_modal__image");
+const imageModalContainer = document.querySelector(".modal__image_containter");
+const imageModalImage = document.querySelector(".modal__image");
 
 //EVENT HANDLERS
 // closeAddCardModalBtn.addEventListener("click", closeAddCardModal);
@@ -93,6 +93,8 @@ addCardModalFormElement.addEventListener("submit", handleAddCardFormSubmit);
     const popup = button.closest(".modal");
     button.addEventListener("click", () => closePopup(popup));
   });
+
+  
 
   function openPopup(popup) {
     popup.classList.add("modal_opened");
@@ -148,10 +150,8 @@ function fillProfileForm() {
 
 //  FILL CARD FORM
 function fillCardForm() {
-  // addModalCardTitle.value = addModalCardTitle.textContent;
-  // addModalCardUrl.value = addModalCardUrl.textContent;
   addModalCardTitle.value = "";
-  // addModalCardUrl.value = "";
+  addModalCardUrl.value = "";
 }
 
 // MODAL FORM SUBMISSION
@@ -173,7 +173,7 @@ function handleAddCardFormSubmit(evt) {
     link: addModalCardUrl.value,
   };
   
-  // initialCards.push(newCardData);
+  initialCards.push(newCardData);
   const cardElement = createCard(newCardData)
   cardsList.prepend(cardElement);
   closePopup(addCardModal);
