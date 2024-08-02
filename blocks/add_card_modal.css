@@ -172,7 +172,7 @@
     /* width: 90%; */
     height: 100%;
     margin: 123px 19px;
-   
+
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
@@ -234,8 +234,6 @@
     margin: 0 0 25px 0;
     padding: 14px 100px;
   }
-
-
 }
 
 /* .modal_opened {
