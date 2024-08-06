@@ -53,6 +53,8 @@ const addCardModal = document.querySelector(".modal_type_add");
 const addCardFormContainerElement = document.querySelector(".modal__container");
 const closeAddCardModalBtn = document.querySelector(".modal__close");
 const addCardModalFormElement = addCardModal.querySelector(".modal__form");
+const profileModalFormElement = addCardModal.querySelector(".modal__form");
+const imageModalFormElement = addCardModal.querySelector(".modal__form");
 // const clickedAddModalFormCardInputs = document.querySelectorAll(".add_modal__input");
 const addModalCardTitle = addCardModalFormElement.querySelector("#modal__input_title");
 const addModalCardUrl = addCardModalFormElement.querySelector("#modal__input_url");
@@ -76,6 +78,8 @@ const imageModalImage = document.querySelector(".modal__image");
 editButton.addEventListener("click", openEditProfileModal);
 // addButton.addEventListener("click", openAddCardModal);
 addButton.addEventListener("click", openAddCardModal);
+profileModal.querySelector(".modal__form").addEventListener("submit", handleProfileFormSubmit);
+
 // formSaveButton.addEventListener("click", handleProfileFormSubmit);
 // formSaveButton.addEventListener("submit", handleProfileFormSubmit);
 // formCardSaveButton.addEventListener("click", handleAddCardFormSubmit);
@@ -119,7 +123,7 @@ function openEditProfileModal() {
   // if (!profileModal.classList.contains("modal_opened")) {
   //   profileModal.classList.add("modal_opened");
     openPopup(profileModal);
-    fillProfileForm();
+    fillProfileForm()
   // }
 }
 
@@ -133,17 +137,18 @@ function openAddCardModal() {
 function openImageModal(evt) {
   // if (!imageModal.classList.contains("image_modal_opened")) {
     openPopup(imageModal);
-    if (evt.target.classList.contains("card__image")) {
+    // if (evt.target.classList.contains("card__image")) {
       const cardImage = evt.target;
       imageModalImage.src = cardImage.src;
       imageModalImage.alt = cardImage.alt;
       console.log(`${imageModalImage.src} card was clicked`);
-    }
+    // }
   // }
 }
 
 //  FILL PROFILE FORM
 function fillProfileForm() {
+  console.log("I was called in the profile form")
   modalNameInput.value = profileName.textContent;
   modalJobInput.value = profileJob.textContent;
 }
