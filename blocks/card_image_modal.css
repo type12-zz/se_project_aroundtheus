@@ -165,13 +165,13 @@
     padding: 0;
   }
 
-  .modal__close {
-    display: flex;
-    position: absolute;
+  /* .modal__close { */
+    /* display: flex; */
+    /* position: absolute; */
     /* top: -42px; */
-    top: 32px;
+    /* top: 32px; */
     /* right: -13px; */
-    left: 276px;
+    /* left: 276px; */
     /* right: -53px; */
-  }
+  /* } */
 }
