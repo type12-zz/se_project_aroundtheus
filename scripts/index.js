@@ -54,7 +54,7 @@ const addModalCardTitle = addCardModalFormElement.querySelector(
   "#modal__input_title"
 );
 const addModalCardUrl =
-  addCardModalFormElement.querySelector("#modal__input_url");
+addCardModalFormElement.querySelector("#modal__input_url");
 
 const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
@@ -62,6 +62,7 @@ const imageModal = document.querySelector(".modal_type_image");
 const closeImageModalBtn = document.querySelector(".modal__close");
 const imageModalContainer = document.querySelector(".modal__image_containter");
 const imageModalImage = document.querySelector(".modal__image");
+const imageTitle = document.querySelectorAll(".modal__image_title");
 
 //EVENT HANDLERS
 
@@ -103,8 +104,14 @@ function openAddCardModal() {
 function openImageModal(evt) {
   openPopup(imageModal);
   const cardImage = evt.target;
+  const cardTitle = cardImage.closest(".card").querySelector(".card__title");
+
   imageModalImage.src = cardImage.src;
   imageModalImage.alt = cardImage.alt;
+  imageTitle.forEach(title => {
+    title.textContent = cardTitle.textContent;
+  });
+
   console.log(`${imageModalImage.src} card was clicked`);
 }
 
@@ -149,15 +156,12 @@ function handleAddCardFormSubmit(evt) {
 // LIKE CARD FUNCTION
 function handleLikeCard(evt) {
   evt.preventDefault();
-  const cardElement = evt.target.closest(".card");
-  const likeButton = cardElement.querySelector(".card__like");
+  const likeButton = document.querySelector(".card__like");
   likeButton.classList.toggle("card__like_active");
-  console.log("I activated");
 }
 
 //DELETE CARD FUNCTION
 function handleDeleteCard(evt) {
-  evt.preventDefault();
   const cardElement = evt.target.closest(".card");
   cardElement.remove();
 }
@@ -166,8 +170,9 @@ function handleDeleteCard(evt) {
 function createCard(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
-
   const cardTitle = cardElement.querySelector(".card__title");
+  // const imageTitle = document.querySelectorAll(".modal__image_title");
+
   const likeButton = cardElement.querySelector(".card__like");
   const deleteButton = cardElement.querySelector(".card__trash_image");
   const firstWords = data.name.split("  ");
@@ -175,6 +180,8 @@ function createCard(data) {
   // cardTrashImage.src = "../images/active-trash.svg";
   cardImage.alt = `image of ${firstWords}`;
   cardTitle.textContent = data.name;
+  imageTitle.textContent = data.name
+
   // cardsList.addEventListener("click", handleLikeCard);
   likeButton.addEventListener("click", handleLikeCard);
   deleteButton.addEventListener("click", handleDeleteCard);
