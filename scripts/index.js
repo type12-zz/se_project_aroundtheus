@@ -105,7 +105,6 @@ function openImageModal(evt) {
   openPopup(imageModal);
   const cardImage = evt.target;
   const cardTitle = cardImage.closest(".card").querySelector(".card__title");
-  const imageTitle = cardImage.closest(".card").querySelector(".card__title");
 
   imageModalImage.src = cardImage.src;
   imageModalImage.alt = cardImage.alt;
