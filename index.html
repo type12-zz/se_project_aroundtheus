@@ -50,55 +50,73 @@
                 class="modal__close"
               ></button>
               <h2 class="modal__title">Edit profile</h2>
-              <form class="modal__form">
+              <form class="modal__form" name="editProfileForm" novalidate>
                 <input
                   type="text"
                   placeholder="Full Name"
                   class="modal__input"
                   value=""
                   id="modal__input_name"
-                />
-                <input
+                  minlength="2"
+                  maxlength="40"
+                  required
+                  />
+                  <span class="popup__input_type_error" id="modal__input_name-error"></span>
+                  
+                  <input
                   type="text"
                   placeholder="Occupation"
                   class="modal__input"
                   value=""
                   id="modal__input_job"
-                />
-                <button type="submit" class="modal__save">Save</button>
-              </form>
-            </div>
-          </section>
-          <!-- ------------- ADD CARD MODAL----------- -->
-          <section class="modal modal_type_add">
-            <div class="modal__container">
-              <button
+                  minlength="2"
+                  maxlength="400"
+                  required
+                  />
+                  <span class="popup__input_type_error" id="modal__input_job-error"></span>
+
+                  <button type="submit" class="modal__save">Save</button>
+                </form>
+              </div>
+            </section>
+            <!-- ------------- ADD CARD MODAL----------- -->
+            <section class="modal modal_type_add">
+              <div class="modal__container">
+                <button
                 type="button"
                 aria-label="button to close the modal"
                 class="modal__close"
-              ></button>
-              <!-- <h2 class="add_modal__title">New Place</h2> -->
-              <h2 class="modal__title">New Place</h2>
-              <!-- <form class="modal modal__form"> -->
-              <form class="modal__form">
-                <input
-                  type="text"
-                  placeholder="Title"
-                  class="modal__form_input"
-                  value=""
-                  id="modal__input_title"
-                />
-                <input
-                  type="url"
-                  placeholder="Image link"
-                  class="modal__form_input"
-                  value=""
-                  id="modal__input_url"
-                />
-                <button type="submit" class="modal__save">Create</button>
-              </form>
-            </div>
-          </section>
+                ></button>
+                <!-- <h2 class="add_modal__title">New Place</h2> -->
+                <h2 class="modal__title">New Place</h2>
+                <!-- <form class="modal modal__form"> -->
+                  <form class="modal__form" name="addCardForm" novalidate>
+                    <input
+                    type="text"
+                    placeholder="Title"
+                    class="modal__input modal__input-title"
+                    value=""
+                    id="modal__input_title"
+                    minlength="1"
+                    maxlength="30"
+                    required
+                    />
+                    <span class="popup__input_type_error" id="modal__input_title-error"></span>
+
+                    <input
+                    type="url"
+                    placeholder="Image link"
+                    class="modal__input modal__input-url"
+                    value=""
+                    id="modal__input_url"
+                    required
+                    />
+                    <span class="popup__input_type_error" id="modal__input_url-error"></span>
+
+                    <button type="submit" class="modal__save">Create</button>
+                  </form>
+                </div>
+              </section>
           <!-- ------------- IMAGE MODAL----------- -->
           <section class="modal modal_type_image" id="image__modal">
             <div class="modal__image_container">
@@ -140,5 +158,6 @@
       </div>
     </div>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

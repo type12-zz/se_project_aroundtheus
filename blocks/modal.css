@@ -91,7 +91,7 @@
   cursor: pointer;
 }
 
-.modal__form_input {
+.modal__form_input-url {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -116,6 +116,18 @@
 .modal__image_container {
   position: relative;
   object-fit: cover;
+}
+
+/* .popup__input_type_error { */
+.popup__error_visible {
+  /* display: flex; */
+  position: relative;
+  top: -32px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  border-top: rgba(255, 0, 0, 1) 1px solid;
+  color: rgba(255, 0, 0, 1);
 }
 
 @media screen and (min-width: 320px) and (max-width: 480px) {

@@ -64,6 +64,11 @@ const imageModalContainer = document.querySelector(".modal__image_containter");
 const imageModalImage = document.querySelector(".modal__image");
 const imageTitle = document.querySelector(".modal__image_title");
 
+//FORMS
+
+const editProfileForm = document.forms.editProfileForm;
+const addCardForm = document.forms.addCardForm;
+
 //EVENT HANDLERS
 
 editButton.addEventListener("click", openEditProfileModal);
@@ -186,3 +191,8 @@ function renderCard(data) {
 initialCards.forEach((card) => {
   renderCard(card);
 });
+
+
+// ---------FORM FUNCTIONS--------------
+//--------------------------------------
+
