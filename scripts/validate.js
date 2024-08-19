@@ -1,18 +1,66 @@
+// function closeOverlay(){
+//     const overlay = document.querySelector(".modal_opened");
+//     console.log("Start")
+//     if (overlay) {
+//          overlay.addEventListener("click", (evt) => {
+//         if (evt.target === overlay) {
+//             console.log("I clicked")
+//             evt.target.classList.remove("modal_opened");
+//         }
+//         console.log("no overlay closed");
+    
+//     })
+//     }
+   
+// }
+
+function closeOverlay() {
+    // Add a click event listener to the entire document or a parent container
+    document.addEventListener("click", (evt) => {
+        const overlay = document.querySelector(".modal_opened");
+
+        if (overlay && evt.target === overlay) {
+            console.log("I clicked");
+            overlay.classList.remove("modal_opened");
+        } else {
+            console.log("No overlay closed");
+        }
+    });
+}
+
+function closeOverlayWithEscapeKey() {
+    // Add a click event listener to the entire document or a parent container
+    document.addEventListener("keydown", (evt) => {
+        const overlay = document.querySelector(".modal_opened");
+       
+        if (overlay && evt.key === "Escape") {
+            console.log("I clicked");
+            overlay.classList.remove("modal_opened");
+        } else {
+            console.log("No overlay closed");
+        }
+    });
+}
+
+closeOverlay()
+closeOverlayWithEscapeKey()
+
 function toggleButtonState(inputElements, submitButton, {inactiveButtonClass}) {
     let foundInvalid = false;
     inputElements.forEach(inputElement => {
         if (!inputElement.validity.valid) {
             foundInvalid = true;
+            console.log("Found Invalids")
         }
     });
     
         if (foundInvalid){
             submitButton.classList.add(inactiveButtonClass);
-            submitButton.disabled = true;
-        } else {
-            submitButton.classList.remove(inactiveButtonClass);
-            submitButton.disabled = false;
-        }
+            return submitButton.disabled = true;
+        } 
+        submitButton.classList.remove(inactiveButtonClass);
+        submitButton.disabled = false;
+        
 }
 
 function showInputError(formElement, inputElement, {inputErrorClass, errorClass}) {
@@ -31,10 +79,11 @@ function hideInputError(formElement, inputElement, {inputErrorClass, errorClass}
 
 function checkInputValidation(formElement, inputElement, options) {
     if (!inputElement.validity.valid){
-        showInputError(formElement, inputElement, options)
-    } else {
-        hideInputError(formElement, inputElement, options);
+        return showInputError(formElement, inputElement, options)
     }
+
+    hideInputError(formElement, inputElement, options);
+    
 }
 
 function setEventListeners(formElement, options) {
