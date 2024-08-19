@@ -1,30 +1,11 @@
-// function closeOverlay(){
-//     const overlay = document.querySelector(".modal_opened");
-//     console.log("Start")
-//     if (overlay) {
-//          overlay.addEventListener("click", (evt) => {
-//         if (evt.target === overlay) {
-//             console.log("I clicked")
-//             evt.target.classList.remove("modal_opened");
-//         }
-//         console.log("no overlay closed");
-    
-//     })
-//     }
-   
-// }
-
 function closeOverlay() {
     // Add a click event listener to the entire document or a parent container
     document.addEventListener("click", (evt) => {
         const overlay = document.querySelector(".modal_opened");
 
         if (overlay && evt.target === overlay) {
-            console.log("I clicked");
             overlay.classList.remove("modal_opened");
-        } else {
-            console.log("No overlay closed");
-        }
+        } 
     });
 }
 
@@ -34,11 +15,8 @@ function closeOverlayWithEscapeKey() {
         const overlay = document.querySelector(".modal_opened");
        
         if (overlay && evt.key === "Escape") {
-            console.log("I clicked");
             overlay.classList.remove("modal_opened");
-        } else {
-            console.log("No overlay closed");
-        }
+        } 
     });
 }
 
