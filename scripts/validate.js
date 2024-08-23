@@ -1,28 +1,3 @@
-function closeOverlay() {
-    // Add a click event listener to the entire document or a parent container
-    document.addEventListener("click", (evt) => {
-        const overlay = document.querySelector(".modal_opened");
-
-        if (overlay && evt.target === overlay) {
-            overlay.classList.remove("modal_opened");
-        } 
-    });
-}
-
-function closeOverlayWithEscapeKey() {
-    // Add a click event listener to the entire document or a parent container
-    document.addEventListener("keydown", (evt) => {
-        const overlay = document.querySelector(".modal_opened");
-       
-        if (overlay && evt.key === "Escape") {
-            overlay.classList.remove("modal_opened");
-        } 
-    });
-}
-
-closeOverlay()
-closeOverlayWithEscapeKey()
-
 function toggleButtonState(inputElements, submitButton, {inactiveButtonClass}) {
     let foundInvalid = false;
     inputElements.forEach(inputElement => {
@@ -71,7 +46,7 @@ function setEventListeners(formElement, options) {
     inputElements.forEach(inputElement => {
         inputElement.addEventListener("input", (evt) => {
             // get the input element then check input length
-            const submitButton = formElement.querySelector(".modal__save");
+            const submitButton = formElement.querySelector(options.submitButtonSelector);
             const inputTarget = evt.target;
             checkInputValidation(formElement, inputElement, options)
             toggleButtonState(inputElements, submitButton, options);

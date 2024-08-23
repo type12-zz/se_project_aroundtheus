@@ -39,6 +39,7 @@ const editButton = document.querySelector(".profile__edit");
 const addButton = document.querySelector(".profile__add");
 const cardImage = cardTemplate.querySelector(".card__image");
 
+
 const profileModal = document.querySelector(".modal_type_profile");
 const modalNameInput = document.querySelector("#modal__input_name");
 const modalJobInput = document.querySelector("#modal__input_job");
@@ -62,7 +63,7 @@ const imageModal = document.querySelector(".modal_type_image");
 const closeImageModalBtn = document.querySelector(".modal__close");
 const imageModalContainer = document.querySelector(".modal__image_containter");
 const imageModalImage = document.querySelector(".modal__image");
-const imageTitle = document.querySelector(".modal__image_title");
+const imageTitle = document.querySelector(".modal__image-title");
 
 //FORMS
 
@@ -90,10 +91,14 @@ closeModalBtns.forEach((button) => {
 
 function openPopup(popup) {
   popup.classList.add("modal_opened");
+  popup.addEventListener("click", closeOverlay);
+  document.addEventListener("keydown", closeOverlayWithEscapeKey);
 }
 
 function closePopup(popup) {
   popup.classList.remove("modal_opened");
+  popup.removeEventListener("click", closeOverlay);
+  document.removeEventListener("keydown", closeOverlayWithEscapeKey);
 }
 
 // OPEN MODAL
@@ -130,6 +135,11 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = modalName.value;
   profileJob.textContent = modalJob.value;
+
+  if (evt.key === "Enter") {
+    closePopup(profileModal);
+  }
+  
   closePopup(profileModal);
   evt.target.reset();
 }
@@ -145,6 +155,9 @@ function handleAddCardFormSubmit(evt) {
 
   const cardElement = createCard(newCardData);
   cardsList.prepend(cardElement);
+  if (evt.key === "Enter") {
+    closePopup(addCardModal);
+  }
   closePopup(addCardModal);
   evt.target.reset();
 }
@@ -195,4 +208,21 @@ initialCards.forEach((card) => {
 
 // ---------FORM FUNCTIONS--------------
 //--------------------------------------
+
+function closeOverlay(evt) {
+  // Add a click event listener to the entire document or a parent container
+  const modal = document.querySelector(".modal_opened");
+  if (evt.target === modal) {
+      closePopup(modal)
+    } 
+  }
+  
+  function closeOverlayWithEscapeKey(evt) {
+    console.log("debug");
+    // Add a click event listener to the entire document or a parent container
+    if (evt.key === "Escape") {
+        const modal = document.querySelector(".modal_opened");
+        closePopup(modal)
+      };
+}
 
