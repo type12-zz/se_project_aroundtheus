@@ -208,8 +208,8 @@ initialCards.forEach((card) => {
 function closeOverlay(evt) {
   // Add a click event listener to the event using target
   const modal = evt.target.querySelector(".modal_opened");
-  if (evt.target === modal) {
-      closePopup(modal)
+  if (evt.target.classList.contains("modal_open")) {
+      closePopup(evt.target)
     } 
   }
   
