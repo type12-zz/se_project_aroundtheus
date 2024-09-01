@@ -30,6 +30,10 @@ const initialCards = [
   },
 ];
 
+//FORMS
+const editProfileForm = document.forms.editProfileForm;
+const addCardForm = document.forms.addCardForm;
+
 // ELEMENTS
 const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#cardTemplate").content;
@@ -49,13 +53,8 @@ const formSaveButton = document.querySelector(".modal__save");
 const addCardModal = document.querySelector(".modal_type_add");
 const addCardFormContainerElement = document.querySelector(".modal__container");
 const closeAddCardModalBtn = document.querySelector(".modal__close");
-const addCardModalFormElement = addCardModal.querySelector(".modal__form");
-
-const addModalCardTitle = addCardModalFormElement.querySelector(
-  "#modal__input_title"
-);
-const addModalCardUrl =
-  addCardModalFormElement.querySelector("#modal__input_url");
+const addModalCardTitle = addCardForm.querySelector("#modal__input_title");
+const addModalCardUrl =  addCardForm.querySelector("#modal__input_url");
 
 const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
@@ -64,11 +63,6 @@ const closeImageModalBtn = document.querySelector(".modal__close");
 const imageModalContainer = document.querySelector(".modal__image_containter");
 const imageModalImage = document.querySelector(".modal__image");
 const imageTitle = document.querySelector(".modal__image-title");
-
-//FORMS
-
-const editProfileForm = document.forms.editProfileForm;
-const addCardForm = document.forms.addCardForm;
 
 //EVENT HANDLERS
 
@@ -138,9 +132,9 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = modalName.value;
   profileJob.textContent = modalJob.value;
 
-  if (evt.key === "Enter") {
-    closePopup(profileModal);
-  }
+  // if (evt.key === "Enter") {
+  //   closePopup(profileModal);
+  // }
   
   closePopup(profileModal);
   evt.target.reset();
@@ -148,7 +142,6 @@ function handleProfileFormSubmit(evt) {
 
 // MODAL ADD CARD FORM SUBMISSION
 function handleAddCardFormSubmit(evt) {
-  console.log("Hello");
   evt.preventDefault();
   const newCardData = {
     name: addModalCardTitle.value,
@@ -158,9 +151,9 @@ function handleAddCardFormSubmit(evt) {
   // const cardElement = createCard(newCardData);
   // cardsList.prepend(cardElement);
   renderCard(newCardData);
-  if (evt.key === "Enter") {
-    closePopup(addCardModal);
-  }
+  // if (evt.key === "Enter") {
+  //   closePopup(addCardModal);
+  // }
   closePopup(addCardModal);
   evt.target.reset();
 }
@@ -213,8 +206,8 @@ initialCards.forEach((card) => {
 //--------------------------------------
 
 function closeOverlay(evt) {
-  // Add a click event listener to the entire document or a parent container
-  const modal = document.querySelector(".modal_opened");
+  // Add a click event listener to the event using target
+  const modal = evt.target.querySelector(".modal_opened");
   if (evt.target === modal) {
       closePopup(modal)
     } 
