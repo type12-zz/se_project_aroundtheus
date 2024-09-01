@@ -74,11 +74,13 @@ const addCardForm = document.forms.addCardForm;
 
 editButton.addEventListener("click", openEditProfileModal);
 addButton.addEventListener("click", openAddCardModal);
-profileModal
-  .querySelector(".modal__form")
-  .addEventListener("submit", handleProfileFormSubmit);
+// profileModal
+//   .querySelector(".modal__form")
+//   .addEventListener("submit", handleProfileFormSubmit);
+editProfileForm.addEventListener("submit", handleProfileFormSubmit);
+addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-addCardModalFormElement.addEventListener("submit", handleAddCardFormSubmit);
+// addCardModalFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 // **********JAVASCRIPT FUNCTIONS*********
 
@@ -153,8 +155,9 @@ function handleAddCardFormSubmit(evt) {
     link: addModalCardUrl.value,
   };
 
-  const cardElement = createCard(newCardData);
-  cardsList.prepend(cardElement);
+  // const cardElement = createCard(newCardData);
+  // cardsList.prepend(cardElement);
+  renderCard(newCardData);
   if (evt.key === "Enter") {
     closePopup(addCardModal);
   }
