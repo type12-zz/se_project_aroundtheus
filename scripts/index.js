@@ -60,7 +60,7 @@ const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
 const imageModal = document.querySelector(".modal_type_image");
 const closeImageModalBtn = document.querySelector(".modal__close");
-const imageModalContainer = document.querySelector(".modal__image_containter");
+const imageModalContainer = document.querySelector(".modal__image-containter");
 const imageModalImage = document.querySelector(".modal__image");
 const imageTitle = document.querySelector(".modal__image-title");
 
