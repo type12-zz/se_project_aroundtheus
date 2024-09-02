@@ -113,7 +113,7 @@
   padding: 0;
 }
 
-.modal__image_container {
+.modal__image-container {
   position: relative;
   object-fit: cover;
 }
@@ -166,9 +166,7 @@
   .modal__close {
     width: 26px;
     height: 26px;
-
     right: 7px;
-
     margin-bottom: 18.62px;
     z-index: 1;
   }
