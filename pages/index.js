@@ -1,3 +1,6 @@
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -43,7 +46,6 @@ const editButton = document.querySelector(".profile__edit");
 const addButton = document.querySelector(".profile__add");
 const cardImage = cardTemplate.querySelector(".card__image");
 
-
 const profileModal = document.querySelector(".modal_type_profile");
 const modalNameInput = document.querySelector("#modal__input_name");
 const modalJobInput = document.querySelector("#modal__input_job");
@@ -54,7 +56,7 @@ const addCardModal = document.querySelector(".modal_type_add");
 const addCardFormContainerElement = document.querySelector(".modal__container");
 const closeAddCardModalBtn = document.querySelector(".modal__close");
 const addModalCardTitle = addCardForm.querySelector("#modal__input_title");
-const addModalCardUrl =  addCardForm.querySelector("#modal__input_url");
+const addModalCardUrl = addCardForm.querySelector("#modal__input_url");
 
 const modalName = document.querySelector("#modal__input_name");
 const modalJob = document.querySelector("#modal__input_job");
@@ -135,7 +137,7 @@ function handleProfileFormSubmit(evt) {
   // if (evt.key === "Enter") {
   //   closePopup(profileModal);
   // }
-  
+
   closePopup(profileModal);
   evt.target.reset();
 }
@@ -174,6 +176,8 @@ function createCard(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
+  const imageTitle = document.querySelector(".modal__image-title");
+
 
   const likeButton = cardElement.querySelector(".card__like");
   const deleteButton = cardElement.querySelector(".card__trash_image");
@@ -192,7 +196,9 @@ function createCard(data) {
 
 // RENDER CARDS
 function renderCard(data) {
-  const cardElement = createCard(data);
+  //const cardElement = createCard(data);
+  const cardInstance = new Card(data);
+  const cardElement = cardInstance.getCardElement()
   cardsList.prepend(cardElement);
 }
 
@@ -201,23 +207,21 @@ initialCards.forEach((card) => {
   renderCard(card);
 });
 
-
 // ---------FORM FUNCTIONS--------------
 //--------------------------------------
 
 function closeOverlay(evt) {
   // Add a click event listener to the event using target
   if (evt.target.classList.contains("modal_opened")) {
-      closePopup(evt.target)
-    } 
+    closePopup(evt.target);
   }
-  
-  function closeOverlayWithEscapeKey(evt) {
-    console.log("debug");
-    // Add a click event listener to the entire document or a parent container
-    if (evt.key === "Escape") {
-        const modal = document.querySelector(".modal_opened");
-        closePopup(modal)
-      };
 }
 
+function closeOverlayWithEscapeKey(evt) {
+  console.log("debug");
+  // Add a click event listener to the entire document or a parent container
+  if (evt.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
+    closePopup(modal);
+  }
+}
