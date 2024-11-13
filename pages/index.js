@@ -37,6 +37,8 @@ const initialCards = [
 const editProfileForm = document.forms.editProfileForm;
 const addCardForm = document.forms.addCardForm;
 
+
+
 // ELEMENTS
 const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#cardTemplate").content;
@@ -70,11 +72,20 @@ const imageTitle = document.querySelector(".modal__image-title");
 
 editButton.addEventListener("click", openEditProfileModal);
 addButton.addEventListener("click", openAddCardModal);
-// profileModal
-//   .querySelector(".modal__form")
-//   .addEventListener("submit", handleProfileFormSubmit);
+
+
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
+
+const editProfileFormValidator = new FormValidator('.form__input', editProfileForm);
+const addCardFormValidator = new FormValidator('.form__input', addButton);
+
+// Enable validation on form submissions
+editProfileFormValidator._validateFormSubmission();
+addCardFormValidator._validateFormSubmission();
+
+// editProfileFormValidator.enableValidation();
+// addCardFormValidator.enableValidation();
 
 // addCardModalFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
@@ -109,14 +120,14 @@ function openAddCardModal() {
   openPopup(addCardModal);
 }
 
-function openImageModal(evt) {
+function openImageModal(data) {
   openPopup(imageModal);
-  const cardImage = evt.target;
-  const cardTitle = cardImage.closest(".card").querySelector(".card__title");
+  const cardImage = data.target;
+  const cardTitle = cardImage?.closest(".card").querySelector(".card__title");
 
-  imageModalImage.src = cardImage.src;
-  imageModalImage.alt = cardImage.alt;
-  imageTitle.textContent = cardTitle.textContent;
+  imageModalImage.src = data.link;
+  imageModalImage.alt = data.name;
+  imageTitle.textContent = data.name;
 
   console.log(`${imageModalImage.src} card was clicked`);
 }
@@ -197,9 +208,10 @@ function createCard(data) {
 // RENDER CARDS
 function renderCard(data) {
   //const cardElement = createCard(data);
-  const cardInstance = new Card(data);
+  const cardInstance = new Card(data, "", openImageModal, handleDeleteCard, handleLikeCard);
   const cardElement = cardInstance.getCardElement()
   cardsList.prepend(cardElement);
+
 }
 
 // CALLING FUNCTIONS
