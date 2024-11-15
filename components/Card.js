@@ -14,8 +14,10 @@ export default class Card {
             this._handleImageClick({name: this._name, link: this._link});
         });
 
-        this._likeButton.addEventListener("click", () => {
-            // this._handleLikeClick(this._likeButton.classList.toggle("card__like_active"));
+        this._likeButton.addEventListener("click", (event) => {
+            console.log("event stop prop")
+            event.stopPropagation();
+            this._handleLikeClick(this._likeButton.classList.toggle("card__like_active"));
             this._likeCard();
         });
         
@@ -25,7 +27,9 @@ export default class Card {
     }
     
     _likeCard() {
-        this._likeButton.classList.toggle("card__like_active");
+        // this._likeButton.classList.toggle("card__like_active");
+        // this._likeButton.classList.toggle("card__like_active");
+        console.log("oeace")
     }
 
     _deleteCard() {

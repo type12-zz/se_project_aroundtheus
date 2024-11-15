@@ -129,7 +129,7 @@ function openImageModal(data) {
   imageModalImage.alt = data.name;
   imageTitle.textContent = data.name;
 
-  console.log(`${imageModalImage.src} card was clicked`);
+  // console.log(`${imageModalImage.src} card was clicked`);
 }
 
 //  FILL PROFILE FORM
@@ -173,13 +173,14 @@ function handleAddCardFormSubmit(evt) {
 
 // LIKE CARD FUNCTION
 function handleLikeCard(evt) {
-  evt.target.classList.toggle("card__like_active");
+  // evt.target.classList.toggle("card__like_active");
 }
 
 //DELETE CARD FUNCTION
 function handleDeleteCard(evt) {
-  const cardElement = evt.target.closest(".card");
-  cardElement.remove();
+  // const cardElement = evt.target.closest(".card");
+  const cardElement = evt;
+  // cardElement.remove();
 }
 
 // CREATE CARDS
