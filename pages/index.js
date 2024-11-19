@@ -81,8 +81,8 @@ const editProfileFormValidator = new FormValidator('.form__input', editProfileFo
 const addCardFormValidator = new FormValidator('.form__input', addButton);
 
 // Enable validation on form submissions
-editProfileFormValidator._validateFormSubmission();
-addCardFormValidator._validateFormSubmission();
+// editProfileFormValidator._validateFormSubmission();
+// addCardFormValidator._validateFormSubmission();
 
 // editProfileFormValidator.enableValidation();
 // addCardFormValidator.enableValidation();
@@ -209,7 +209,7 @@ function createCard(data) {
 // RENDER CARDS
 function renderCard(data) {
   //const cardElement = createCard(data);
-  const cardInstance = new Card(data, "", openImageModal, handleDeleteCard, handleLikeCard);
+  const cardInstance = new Card(data, "#cardTemplate", openImageModal, handleDeleteCard, handleLikeCard);
   const cardElement = cardInstance.getCardElement()
   cardsList.prepend(cardElement);
 

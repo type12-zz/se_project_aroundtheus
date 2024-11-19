@@ -1,11 +1,10 @@
 export default class Card {
-    constructor(data, cardSelector, handleImageClick, handleDeleteClick, handleLikeClick) {
+    constructor(data, cardSelector, handleImageClick) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
         this._handleImageClick = handleImageClick;
-        this._handleDeleteClick = handleDeleteClick;
-        this._handleLikeClick = handleLikeClick;
+  
         
     }
 
@@ -17,16 +16,17 @@ export default class Card {
         this._likeButton.addEventListener("click", (event) => {
             console.log("event stop prop")
             event.stopPropagation();
-            this._handleLikeClick(this._likeButton.classList.toggle("card__like_active"));
             this._likeCard();
         });
         
         this._deleteButton.addEventListener("click", () => {
-            this._handleDeleteClick(this._deleteCard());
+            // this._handleDeleteClick(this._deleteCard());
+            this._deleteCard();
         });
     }
     
     _likeCard() {
+        this._likeButton.classList.toggle("card__like_active");
         // this._likeButton.classList.toggle("card__like_active");
         // this._likeButton.classList.toggle("card__like_active");
         console.log("oeace")
@@ -39,8 +39,9 @@ export default class Card {
     }
 
     _getTemplate() {
-        return document.querySelector("#cardTemplate").content.querySelector(".card");
-    }
+        return document.querySelector(this._cardSelector).content.querySelector(".card");
+        // return document.querySelector("#cardTemplate").content.querySelector(".card");
+        }
 
     getCardElement() {
         this._cardElement = this._getTemplate().cloneNode(true);
@@ -58,9 +59,9 @@ export default class Card {
         // this._imageTitle.textContent = this._name;
 
         // this._likeButton.addEventListener("click", () => {this._likeCard()} );
-        this._deleteButton.addEventListener("click", () => {this._deleteCard()} );
-        this._cardImage.addEventListener("click", () => {this._likeCard()} );
-        this._cardImage.addEventListener("click", this._openImageModal);
+        // this._deleteButton.addEventListener("click", () => {this._deleteCard()} );
+        // this._cardImage.addEventListener("click", () => {this._likeCard()} );
+        // this._cardImage.addEventListener("click", this._openImageModal);
 
         // call this._setEvenetListeners()
         this._setEventListeners();
