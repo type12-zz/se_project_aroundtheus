@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
+import FormValidator, {config} from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -37,8 +37,6 @@ const initialCards = [
 const editProfileForm = document.forms.editProfileForm;
 const addCardForm = document.forms.addCardForm;
 
-
-
 // ELEMENTS
 const cardsList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#cardTemplate").content;
@@ -73,12 +71,14 @@ const imageTitle = document.querySelector(".modal__image-title");
 editButton.addEventListener("click", openEditProfileModal);
 addButton.addEventListener("click", openAddCardModal);
 
-
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-const editProfileFormValidator = new FormValidator('.form__input', editProfileForm);
-const addCardFormValidator = new FormValidator('.form__input', addButton);
+const editProfileFormValidator = new FormValidator(config, editProfileForm);
+const addCardFormValidator = new FormValidator(config, addCardForm);
+
+editProfileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
 
 // Enable validation on form submissions
 // editProfileFormValidator._validateFormSubmission();
@@ -118,6 +118,7 @@ function openEditProfileModal() {
 
 function openAddCardModal() {
   openPopup(addCardModal);
+  console.log("I was called in the add card modal");
 }
 
 function openImageModal(data) {
@@ -169,6 +170,8 @@ function handleAddCardFormSubmit(evt) {
   // }
   closePopup(addCardModal);
   evt.target.reset();
+  addCardFormValidator.disableButton();
+  // evt.addCardForm.classList.add("modal__save_disabled");
 }
 
 // LIKE CARD FUNCTION
@@ -190,7 +193,6 @@ function createCard(data) {
   const cardTitle = cardElement.querySelector(".card__title");
   const imageTitle = document.querySelector(".modal__image-title");
 
-
   const likeButton = cardElement.querySelector(".card__like");
   const deleteButton = cardElement.querySelector(".card__trash_image");
   const firstWords = data.name.split("  ");
@@ -209,10 +211,15 @@ function createCard(data) {
 // RENDER CARDS
 function renderCard(data) {
   //const cardElement = createCard(data);
-  const cardInstance = new Card(data, "#cardTemplate", openImageModal, handleDeleteCard, handleLikeCard);
-  const cardElement = cardInstance.getCardElement()
+  const cardInstance = new Card(
+    data,
+    "#cardTemplate",
+    openImageModal,
+    handleDeleteCard,
+    handleLikeCard
+  );
+  const cardElement = cardInstance.getCardElement();
   cardsList.prepend(cardElement);
-
 }
 
 // CALLING FUNCTIONS
