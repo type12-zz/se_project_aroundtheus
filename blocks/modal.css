@@ -144,7 +144,8 @@
 }
 
 .modal__button_disabled{
-  background-color: #ebebeb;
+  /* background-color: #ebebeb; */
+  background-color: rgba(0, 0, 0, 0.8);
   color: #a8a3b0;
 }
 
