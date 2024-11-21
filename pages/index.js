@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-import FormValidator, {config} from "../components/FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -32,6 +32,16 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+// Usage example:
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__save",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
 
 //FORMS
 const editProfileForm = document.forms.editProfileForm;
@@ -77,15 +87,10 @@ addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 const editProfileFormValidator = new FormValidator(config, editProfileForm);
 const addCardFormValidator = new FormValidator(config, addCardForm);
 
+console.log(editProfileFormValidator);
 editProfileFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
-
-// Enable validation on form submissions
-// editProfileFormValidator._validateFormSubmission();
-// addCardFormValidator._validateFormSubmission();
-
-// editProfileFormValidator.enableValidation();
-// addCardFormValidator.enableValidation();
+console.log(addCardFormValidator);
 
 // addCardModalFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
@@ -118,7 +123,6 @@ function openEditProfileModal() {
 
 function openAddCardModal() {
   openPopup(addCardModal);
-  console.log("I was called in the add card modal");
 }
 
 function openImageModal(data) {
@@ -135,7 +139,6 @@ function openImageModal(data) {
 
 //  FILL PROFILE FORM
 function fillProfileForm() {
-  console.log("I was called in the profile form");
   modalNameInput.value = profileName.textContent;
   modalJobInput.value = profileJob.textContent;
 }
