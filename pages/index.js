@@ -221,7 +221,8 @@ function renderCard(data) {
     handleDeleteCard,
     handleLikeCard
   );
-  const cardElement = cardInstance.getCardElement();
+  // const cardElement = cardInstance.getCardElement();
+  const cardElement = createCard(data);
   cardsList.prepend(cardElement);
 }
 
