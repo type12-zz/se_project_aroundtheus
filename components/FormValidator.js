@@ -21,6 +21,7 @@ export default class FormValidator {
     this._errorClass = errorClass;
   }
 
+  
   // Toggles the state of the submit button
   _toggleButtonState(inputElements) {
     const hasInvalidInput = inputElements.some(
@@ -77,6 +78,7 @@ export default class FormValidator {
 
   // Adds event listeners to input fields and the submit button
   _setEventListeners(formElement) {
+
     const inputElements = [
       ...formElement.querySelectorAll(this._inputSelector),
     ];
