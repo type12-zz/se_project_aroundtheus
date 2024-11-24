@@ -12,27 +12,21 @@ export default class Card {
     });
 
     this._likeButton.addEventListener("click", (event) => {
-      console.log("event stop prop");
       event.stopPropagation();
       this._likeCard();
     });
 
     this._deleteButton.addEventListener("click", () => {
-      // this._handleDeleteClick(this._deleteCard());
       this._deleteCard();
     });
   }
 
   _likeCard() {
     this._likeButton.classList.toggle("card__like_active");
-    // this._likeButton.classList.toggle("card__like_active");
-    // this._likeButton.classList.toggle("card__like_active");
-    console.log("oeace");
   }
 
   _deleteCard() {
     this._cardElement.remove();
-    // this._deleteButton.remove();
     this._deleteButton = null;
   }
 
@@ -55,14 +49,6 @@ export default class Card {
     this._cardImage.src = this._link;
     this._cardImage.alt = `image of ${this._firstWords}`;
     this._cardTitle.textContent = this._name;
-    // this._imageTitle.textContent = this._name;
-
-    // this._likeButton.addEventListener("click", () => {this._likeCard()} );
-    // this._deleteButton.addEventListener("click", () => {this._deleteCard()} );
-    // this._cardImage.addEventListener("click", () => {this._likeCard()} );
-    // this._cardImage.addEventListener("click", this._openImageModal);
-
-    // call this._setEvenetListeners()
     this._setEventListeners();
     return this._cardElement;
   }
