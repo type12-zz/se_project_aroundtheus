@@ -1,5 +1,9 @@
 import Card from "../components/Card.js";
+import Section from "../components/Section.js";
 import FormValidator from "../components/FormValidator.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 
 const initialCards = [
   {
@@ -86,6 +90,26 @@ addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 const editProfileFormValidator = new FormValidator(config, editProfileForm);
 const addCardFormValidator = new FormValidator(config, addCardForm);
+const userInfo = new UserInfo({nameSelector:'.profile__name', jobSelector:'.profile__job'});
+
+const imageModalPopup = new PopupWithImage(".modal_type_image");
+// const addCardModalPopup = new PopupWithForm(addCardModal, handleFormSubmit);
+const addCardModalPopup = new PopupWithForm(".modal_type_add", (formData) => {console.log(formData);});
+// const profileModalPopup = new PopupWithForm(".modal_type_profile", handleFormSubmit);
+
+const profileModalPopup = new PopupWithForm(".modal_type_profile", (formData) => { 
+  userInfo.setUserInfo(formData);
+  profileModalPopup.close()
+  // userInfo.getUserInfo();
+});
+
+profileModalPopup.setEventListeners();
+addCardModalPopup.setEventListeners();
+imageModalPopup.setEventListeners();
+
+// userInfo.getUserInfo();
+console.log(`${userInfo.name} ${userInfo.job}`);
+
 
 console.log(editProfileFormValidator);
 editProfileFormValidator.enableValidation();
@@ -98,62 +122,59 @@ console.log(addCardFormValidator);
 
 // CLOSE MODAL
 
-closeModalBtns.forEach((button) => {
-  const popup = button.closest(".modal");
-  button.addEventListener("click", () => closePopup(popup));
-});
+// closeModalBtns.forEach((button) => {
+//   const popup = button.closest(".modal");
+//   button.addEventListener("click", () => closePopup(popup));
+// });
 
-function openPopup(popup) {
-  popup.classList.add("modal_opened");
-  popup.addEventListener("click", closeOverlay);
-  document.addEventListener("keydown", closeOverlayWithEscapeKey);
-}
+// function openPopup(popup) {
+//   popup.classList.add("modal_opened");
+//   popup.addEventListener("click", closeOverlay);
+//   document.addEventListener("keydown", closeOverlayWithEscapeKey);
+// }
 
-function closePopup(popup) {
-  popup.classList.remove("modal_opened");
-  popup.removeEventListener("click", closeOverlay);
-  document.removeEventListener("keydown", closeOverlayWithEscapeKey);
-}
+// function closePopup(popup) {
+//   popup.classList.remove("modal_opened");
+//   popup.removeEventListener("click", closeOverlay);
+//   document.removeEventListener("keydown", closeOverlayWithEscapeKey);
+// }
 
 // OPEN MODAL
 function openEditProfileModal() {
-  openPopup(profileModal);
-  fillProfileForm();
+  profileModalPopup.open();
+  const userData =  userInfo.getUserInfo();
 }
 
 function openAddCardModal() {
-  openPopup(addCardModal);
+  addCardModalPopup.open()
 }
 
 function openImageModal(data) {
-  openPopup(imageModal);
-  const cardImage = data.target;
-  const cardTitle = cardImage?.closest(".card").querySelector(".card__title");
-
-  imageModalImage.src = data.link;
-  imageModalImage.alt = data.name;
-  imageTitle.textContent = data.name;
-
-  // console.log(`${imageModalImage.src} card was clicked`);
+  imageModalPopup.open(data);
 }
 
 //  FILL PROFILE FORM
 function fillProfileForm() {
-  modalNameInput.value = profileName.textContent;
-  modalJobInput.value = profileJob.textContent;
+  const userData =  userInfo.getUserInfo();
+  userData.name
+  userData.job
 }
 
 // MODAL FORM SUBMISSION
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = modalName.value;
-  profileJob.textContent = modalJob.value;
-
+  // profileName.textContent = modalName.value;
+  // profileJob.textContent = modalJob.value;
+  const {name, job} = userInfo.getUserInfo();
+  userInfo.setUserInfo(modalName, modalJob);
+  // userInfo.setUserInfo(name, job);
+  console.log(`handle profile: ${modalName.value} ${modalJob.value}`);
+  console.log(`handle profile w/ data: ${name} ${job}`);
   // if (evt.key === "Enter") {
   //   closePopup(profileModal);
   // }
 
-  closePopup(profileModal);
+  // closePopup(profileModal);
   evt.target.reset();
 }
 
