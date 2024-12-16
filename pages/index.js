@@ -85,8 +85,8 @@ const imageTitle = document.querySelector(".modal__image-title");
 editButton.addEventListener("click", openEditProfileModal);
 addButton.addEventListener("click", openAddCardModal);
 
-editProfileForm.addEventListener("submit", handleProfileFormSubmit);
-addCardForm.addEventListener("submit", handleAddCardFormSubmit);
+// editProfileForm.addEventListener("submit", handleProfileFormSubmit);
+// addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 const editProfileFormValidator = new FormValidator(config, editProfileForm);
 const addCardFormValidator = new FormValidator(config, addCardForm);
@@ -94,7 +94,9 @@ const userInfo = new UserInfo({nameSelector:'.profile__name', jobSelector:'.prof
 
 const imageModalPopup = new PopupWithImage(".modal_type_image");
 // const addCardModalPopup = new PopupWithForm(addCardModal, handleFormSubmit);
-const addCardModalPopup = new PopupWithForm(".modal_type_add", (formData) => {console.log(formData);});
+const addCardModalPopup = new PopupWithForm(".modal_type_add", (formData) => {
+  addCardForm.addEventListener("submit", handleAddCardFormSubmit);
+});
 // const profileModalPopup = new PopupWithForm(".modal_type_profile", handleFormSubmit);
 
 const profileModalPopup = new PopupWithForm(".modal_type_profile", (formData) => { 
@@ -192,7 +194,8 @@ function handleAddCardFormSubmit(evt) {
   // if (evt.key === "Enter") {
   //   closePopup(addCardModal);
   // }
-  closePopup(addCardModal);
+  // closePopup(addCardModal);
+  addCardModalPopup.close();
   evt.target.reset();
   addCardFormValidator.disableButton();
   // evt.addCardForm.classList.add("modal__save_disabled");
