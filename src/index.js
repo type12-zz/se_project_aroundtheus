@@ -1,51 +1,11 @@
-import Card from "../components/Card.js";
-import Section from "../components/Section.js";
-import FormValidator from "../components/FormValidator.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import UserInfo from "../components/UserInfo.js";
-
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
-// Usage example:
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__save",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
+import "../src/index.css";
+import { initialCards, config } from "./utils/constants.js";
+import Card from "./components/Card.js";
+import Section from "./components/Section.js";
+import FormValidator from "./components/FormValidator.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import PopupWithImage from "./components/PopupWithImage.js";
+import UserInfo from "./components/UserInfo.js";
 
 //FORMS
 const editProfileForm = document.forms.editProfileForm;
@@ -90,7 +50,10 @@ addButton.addEventListener("click", openAddCardModal);
 
 const editProfileFormValidator = new FormValidator(config, editProfileForm);
 const addCardFormValidator = new FormValidator(config, addCardForm);
-const userInfo = new UserInfo({nameSelector:'.profile__name', jobSelector:'.profile__job'});
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  jobSelector: ".profile__job",
+});
 
 const imageModalPopup = new PopupWithImage(".modal_type_image");
 // const addCardModalPopup = new PopupWithForm(addCardModal, handleFormSubmit);
@@ -99,11 +62,14 @@ const addCardModalPopup = new PopupWithForm(".modal_type_add", (formData) => {
 });
 // const profileModalPopup = new PopupWithForm(".modal_type_profile", handleFormSubmit);
 
-const profileModalPopup = new PopupWithForm(".modal_type_profile", (formData) => { 
-  userInfo.setUserInfo(formData);
-  profileModalPopup.close()
-  // userInfo.getUserInfo();
-});
+const profileModalPopup = new PopupWithForm(
+  ".modal_type_profile",
+  (formData) => {
+    userInfo.setUserInfo(formData);
+    profileModalPopup.close();
+    // userInfo.getUserInfo();
+  }
+);
 
 profileModalPopup.setEventListeners();
 addCardModalPopup.setEventListeners();
@@ -111,7 +77,6 @@ imageModalPopup.setEventListeners();
 
 // userInfo.getUserInfo();
 console.log(`${userInfo.name} ${userInfo.job}`);
-
 
 console.log(editProfileFormValidator);
 editProfileFormValidator.enableValidation();
@@ -144,11 +109,11 @@ console.log(addCardFormValidator);
 // OPEN MODAL
 function openEditProfileModal() {
   profileModalPopup.open();
-  const userData =  userInfo.getUserInfo();
+  const userData = userInfo.getUserInfo();
 }
 
 function openAddCardModal() {
-  addCardModalPopup.open()
+  addCardModalPopup.open();
 }
 
 function openImageModal(data) {
@@ -157,9 +122,9 @@ function openImageModal(data) {
 
 //  FILL PROFILE FORM
 function fillProfileForm() {
-  const userData =  userInfo.getUserInfo();
-  userData.name
-  userData.job
+  const userData = userInfo.getUserInfo();
+  userData.name;
+  userData.job;
 }
 
 // MODAL FORM SUBMISSION
@@ -167,7 +132,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   // profileName.textContent = modalName.value;
   // profileJob.textContent = modalJob.value;
-  const {name, job} = userInfo.getUserInfo();
+  const { name, job } = userInfo.getUserInfo();
   userInfo.setUserInfo(modalName, modalJob);
   // userInfo.setUserInfo(name, job);
   console.log(`handle profile: ${modalName.value} ${modalJob.value}`);
@@ -214,26 +179,26 @@ function handleDeleteCard(evt) {
 }
 
 // CREATE CARDS
-function createCard(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-  const imageTitle = document.querySelector(".modal__image-title");
+// function createCard(data) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImage = cardElement.querySelector(".card__image");
+//   const cardTitle = cardElement.querySelector(".card__title");
+//   const imageTitle = document.querySelector(".modal__image-title");
 
-  const likeButton = cardElement.querySelector(".card__like");
-  const deleteButton = cardElement.querySelector(".card__trash_image");
-  const firstWords = data.name.split("  ");
-  cardImage.src = data.link;
-  cardImage.alt = `image of ${firstWords}`;
-  cardTitle.textContent = data.name;
-  imageTitle.textContent = data.name;
+//   const likeButton = cardElement.querySelector(".card__like");
+//   const deleteButton = cardElement.querySelector(".card__trash_image");
+//   const firstWords = data.name.split("  ");
+//   cardImage.src = data.link;
+//   cardImage.alt = `image of ${firstWords}`;
+//   cardTitle.textContent = data.name;
+//   imageTitle.textContent = data.name;
 
-  likeButton.addEventListener("click", handleLikeCard);
-  deleteButton.addEventListener("click", handleDeleteCard);
-  cardImage.addEventListener("click", openImageModal);
+//   likeButton.addEventListener("click", handleLikeCard);
+//   deleteButton.addEventListener("click", handleDeleteCard);
+//   cardImage.addEventListener("click", openImageModal);
 
-  return cardElement;
-}
+//   return cardElement;
+// }
 
 // RENDER CARDS
 function renderCard(data) {
@@ -253,6 +218,18 @@ function renderCard(data) {
 initialCards.forEach((card) => {
   renderCard(card);
 });
+
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      const cardElement = createCard(data);
+      cardSection.addItem(cardElement);
+    },
+  },
+  config.cardsList
+);
+cardSection.renderItems(initialCards);
 
 // ---------FORM FUNCTIONS--------------
 //--------------------------------------
