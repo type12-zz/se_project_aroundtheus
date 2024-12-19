@@ -34,7 +34,6 @@ export default class Card {
     return document
       .querySelector(this._cardSelector)
       .content.querySelector(".card");
-    // return document.querySelector("#cardTemplate").content.querySelector(".card");
   }
 
   getCardElement() {

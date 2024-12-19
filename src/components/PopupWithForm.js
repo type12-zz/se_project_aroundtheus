@@ -13,7 +13,7 @@ export default class PopupWithForm extends Popup {
     // returns an object with the values of the input fields
     const inputValues = {};
     this._inputList.forEach((input) => {
-      inputValues[input.name] = input.value;
+      inputValues[input.name] = input.value.trim();
     });
     return inputValues;
   }
@@ -27,8 +27,4 @@ export default class PopupWithForm extends Popup {
     });
   }
 
-  close() {
-    // this._popupForm.reset();
-    super.close(); // super is the same as the keyword "this" for the parent class
-  }
 }
